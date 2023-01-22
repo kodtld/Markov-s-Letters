@@ -3,7 +3,7 @@
 ## General
 I am writing a program in Python that aims to predict the word the user is typing based on the letters provided. 
 
-My goal is to initialize a trie tree with 58,000 English words and to make real-time predictions using a Markov chain based on the user's current input. The user's input is given in a text field and the program provides the four most relevant predictions based on the current state of the input.
+My goal is to initialize a trie tree with 58,000 English words and to make real-time predictions using a Markov chain based on the user's current input. The user's input is given in a text field and the program provides the four most relevant predictions based on the current state of the input. On top of the text, the user can choose how many steps should be taken into consideration (one-step markov, two-step markov, ...).
 
 I chose the topic because it seemed like a proper challenge, but a manageable one. I believe it'll be a fitting project for my first poke at machine learning.
 
