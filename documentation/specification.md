@@ -1,7 +1,11 @@
 # Markov's Letters
 ### | TKT | Python | English |
 ## General
-I am writing a program in Python that aims to predict the word the user is typing based on the letters provided. My goal is to initialize a trie tree with 58,000 English words and to make real-time predictions using a Markov chain based on the user's current input. The user's input is given in a text field and the program provides the four most relevant predictions based on the current state of the input. I chose the topic because it seemed like a proper challenge, but a manageable one. I believe it'll be a fitting project for my first poke at machine learning.
+I am writing a program in Python that aims to predict the word the user is typing based on the letters provided. 
+
+My goal is to initialize a trie tree with 58,000 English words and to make real-time predictions using a Markov chain based on the user's current input. The user's input is given in a text field and the program provides the four most relevant predictions based on the current state of the input.
+
+I chose the topic because it seemed like a proper challenge, but a manageable one. I believe it'll be a fitting project for my first poke at machine learning.
 
 ## Time and space
 The time complexity for inserting a word into a trie is O(n), where n is the length of the word. The time complexity for searching for a word in a trie is also O(n), where n is the length of the word being searched for. The space complexity for a trie is O(m * n), where m is the number of words in the trie and n is the average length of a word in the trie.
