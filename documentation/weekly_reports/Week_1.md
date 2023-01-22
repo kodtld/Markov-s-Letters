@@ -1,5 +1,5 @@
 # Week 1
-### | Time spent: 5 hours |
+### Time spent: 5 hours
 
 ## This week
 
