@@ -1,8 +1,8 @@
 # Week 1
 ### | Time spent: 5 hours |
 
-### This week
+## This week
 
-### Challenges
+## Challenges
 
-### Next week
+## Next week
