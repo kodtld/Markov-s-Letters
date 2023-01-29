@@ -18,7 +18,7 @@ class TrieNode: # pylint: disable=R0903
 
 class Trie:
     """
-    The Trie (prefix-tree) for storing the words, and its operations
+    The Trie (prefix-tree) for storing the words and its operations
     """
     def __init__(self):
         self.root = TrieNode()
