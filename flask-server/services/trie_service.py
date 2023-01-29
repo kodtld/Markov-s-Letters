@@ -27,7 +27,7 @@ class Trie:
         """
         Gets and inserts (self.insert) .txt format books into Trie from resources/books
         """
-        directory = '/home/kxsalmi/markovs_letters/flask-server/resources/books'
+        directory = 'resources/books'
         for filename in os.listdir(directory):
             k = os.path.join(directory, filename)
             if os.path.isfile(k):
