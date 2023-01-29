@@ -50,6 +50,7 @@ class Trie:
                     current.children[char] = TrieNode()
                 current = current.children[char]
             current.is_word = True
+
             if i < len(words) - 1:
                 current.next_words.add(words[i+1])
             current.frequency += 1
