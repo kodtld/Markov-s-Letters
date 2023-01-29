@@ -2,11 +2,17 @@
 ### Time spent: 12 hours
 
 ## This week
-This week was mostly spent on choosing the topic for the project, finding information about possible implementations, and initializing the project itself.
-I learned about the general use cases of Markov chains and a bit of its history. I also familiarized myself with the concept of a trie and prepared for its implementation.
+I had to change my subject from predicting words to generating sentences.
+I implemented the Trie data-structure and in its current state it's initialized with 5 novels.
+The trie has operations for searching words and their frequensy, and can output a dictionary of possible words after given word.
+I also wrote unittests for said Trie, figured my CI pipeline, and implemented Pylint into my project.
 
 ## Challenges
-At this stage, it's quite hard to name any challenges, as I still don't possess a throughout understanding of the data structure, or the algorithm I'm going to use for the project.
+I had multiple challenges with the Trie, firstly, inserting the books into the Trie took a bit of work.
+After the insertion I had troubles with specifying when a word ends and where a sentence ends.
+Also getting the right frequency took a bit of my time.
 
 ## Next week
-Next week I'll start the actual research and development of the project. I plan to have the trie up and running and begin working with initializing it with the list of English words.
+Next week I'll add a stripping method that removes special characters from inserted sentences.
+I'll add a possibility to show possible next words for a sequence of given words.
+Also start the work on the Markov's chain itself.
