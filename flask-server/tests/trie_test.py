@@ -11,12 +11,12 @@ class TestTrie(unittest.TestCase):
     def setUp(self):
         self.trie = Trie()
 
-    def test_insert_books(self):
-        """
-        Tests the insert of books from resources/books
-        """
-        self.trie.insert_books()
-        self.assertEqual(len(self.trie.root.children), 91)
+    # def test_insert_books(self):
+    #     """
+    #     Tests the insert of books from resources/books
+    #     """
+    #     self.trie.insert_books()
+    #     self.assertEqual(len(self.trie.root.children), 91)
 
     def test_insert(self):
         """

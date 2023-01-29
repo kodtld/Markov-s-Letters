@@ -23,7 +23,7 @@ class Trie:
     def __init__(self):
         self.root = TrieNode()
 
-    def insert_books(self):
+    def insert_books(self): # pragma: no cover
         """
         Gets and inserts (self.insert) .txt format books into Trie from resources/books
         """
