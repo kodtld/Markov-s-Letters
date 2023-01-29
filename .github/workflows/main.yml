@@ -15,9 +15,7 @@ jobs:
       - name: Change repo
         run: cd flask-server
       - name: Install Poetry
-        run: | 
-             pip install poetry
-             poetry add -e .
+        run:  pip install poetry
       - name: Install dependencies
         run: poetry install --no-root
       - name: Run tests
