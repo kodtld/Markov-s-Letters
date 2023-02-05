@@ -27,7 +27,10 @@ class Trie:
         """
         Gets and inserts (self.insert) .txt format books into Trie from resources/books
         """
-        directory = 'resources/books'
+        absolute_path = os.path.dirname(__file__)
+        relative_path = "../resources/books"
+        full_path = os.path.join(absolute_path, relative_path)
+        directory = full_path
         for filename in os.listdir(directory):
             k = os.path.join(directory, filename)
             if os.path.isfile(k):
@@ -68,6 +71,21 @@ class Trie:
             current = current.children[char]
         return current.is_word or current.is_sentence
 
+    def getter(self,trie):
+        """
+        Returns every word, their possible followers, and their frequency
+        Can be searched for a specific word by calling: getter(trie)['word']
+        """
+        words_and_data = {}
+        stack = [("", trie.root)]
+        while stack:
+            word, node = stack.pop()
+            if node.is_word or node.is_sentence:
+                words_and_data[word] = (word ,node.frequency, node.next_words)
+            for child_char, child_node in node.children.items():
+                stack.append((word + child_char, child_node))
+        return words_and_data
+
     def next_word(self, word):
         """
         Searches for the next possible words of given word
@@ -91,10 +109,31 @@ class Trie:
             current = current.children[char]
         return current.frequency
 
-# if __name__ == "__main__":
-#     t = Trie()
-#     print(t.search("world"))
-#     print(t.search("doing"))
-#     print(t.next_word("doing"))
-#     print(t.frequency_of("doing"))
-#     print(t.next_words_for_sentence("doing"))
+    def next_words_sequence(self, sequence):
+        """
+        Returns the set of next possible words for a sequence of words
+        """
+        current = self.root
+        for word in sequence:
+            if not word:
+                return set()
+            current = self.root
+            for char in word:
+                if char not in current.children:
+                    return set()
+                current = current.children[char]
+        return current.next_words
+
+    def next_word_frequencies(self, word):
+        """
+        Returns possible words after parameter word and their frequencies
+        """
+        current = self.root
+        for char in word:
+            if char not in current.children:
+                return None
+            current = current.children[char]
+        next_word_frequencies = {}
+        for next_word in current.next_words:
+            next_word_frequencies[next_word] = self.frequency_of(next_word)
+        return next_word_frequencies
