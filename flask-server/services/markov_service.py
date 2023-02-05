@@ -13,7 +13,7 @@ class MarkovChain: # pylint: disable=R0903
         self.words_and_data = trie.getter(trie)
         self.words = list(self.words_and_data.keys())
 
-    def generate_sentence(self, starting_word=None, max_length=8):
+    def generate_sentence(self, starting_word=None, max_length=7):
         """
         Generates max_length sentences starting from starting_word
         If no starting_word, chooses a random starting word

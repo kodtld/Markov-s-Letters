@@ -3,6 +3,7 @@ Includes the Trie (prefix-tree) for storing the words, its operations,
 and TrieNode class for initializing the nodes
 """
 import os
+import string
 import nltk.data
 
 class TrieNode: # pylint: disable=R0903
@@ -27,6 +28,9 @@ class Trie:
         """
         Gets and inserts (self.insert) .txt format books into Trie from resources/books
         """
+        banned_chars = string.punctuation + string.digits + ":;()/$'!?“”'‘’-"
+        table = str.maketrans("", "", banned_chars)
+
         absolute_path = os.path.dirname(__file__)
         relative_path = "../resources/books"
         full_path = os.path.join(absolute_path, relative_path)
@@ -36,10 +40,11 @@ class Trie:
             if os.path.isfile(k):
                 with open(k) as files: # pylint: disable=W1514
                     lines = files.read()
-                    text = lines
+                    text = lines.translate(table)
                     sentences = nltk.data.load('tokenizers/punkt/english.pickle')
                     for sentence in sentences.tokenize(text):
                         self.insert(sentence)
+
 
     def insert(self, sentence):
         """
