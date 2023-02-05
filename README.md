@@ -8,6 +8,6 @@
 [Report](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/weekly_reports/Week_2.md)
 
 ## Documentation
-[Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br>
+[Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
 [Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md)
 
