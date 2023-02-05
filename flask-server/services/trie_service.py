@@ -114,21 +114,6 @@ class Trie:
             current = current.children[char]
         return current.frequency
 
-    def next_words_sequence(self, sequence):
-        """
-        Returns the set of next possible words for a sequence of words
-        """
-        current = self.root
-        for word in sequence:
-            if not word:
-                return set()
-            current = self.root
-            for char in word:
-                if char not in current.children:
-                    return set()
-                current = current.children[char]
-        return current.next_words
-
     def next_word_frequencies(self, word):
         """
         Returns possible words after parameter word and their frequencies
