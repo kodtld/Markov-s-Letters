@@ -1,0 +1,3 @@
+.coverage
+.coveragerc
+.pytest_cache
