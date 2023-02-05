@@ -16,11 +16,11 @@ The basic functionalities tested are as follows:
 ### Advanced functionality
 The more advance functionalities tested are as follows:
 - Frequency search of a word in the trie returns its frequency
-- - A nonexistent word returns None
+  - A nonexistent word returns None
 - Next words search for a word in the trie returns a dictionary of the words that appear after the word
-- - A nonexistent word returns None
-- - Next words & frequencies search for a word in the trie returns a dictionary of the words that appear after the word and their frequencies
-- - A nonexistent word returns None
+  - A nonexistent word returns None
+- Next words & frequencies search for a word in the trie returns a dictionary of the words that appear after the word and their frequencies
+  - A nonexistent word returns None
 - The getter returns every word and their frequency and followers
 
 ## Run tests
