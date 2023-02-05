@@ -20,7 +20,7 @@ def index(word=None):
     for i in range(10): # pylint: disable=W0612
         string = str(markov.generate_sentence(starting_word=word))
         words.append({"sentence": string})
-    return trie.next_word_frequencies("world")
+    return words
 
 if __name__ == "__main__":
     app.run(debug=True)
