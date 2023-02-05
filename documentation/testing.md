@@ -1,4 +1,4 @@
-# Testing document
+# Test Document
 
 ## Coverage
 [![codecov](https://codecov.io/gh/kodtld/Markov-s-Letters/branch/master/graph/badge.svg?token=GZHXEZIJ17)](https://codecov.io/gh/kodtld/Markov-s-Letters)
