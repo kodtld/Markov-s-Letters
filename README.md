@@ -9,4 +9,5 @@
 
 ## Documentation
 [Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md)
+[Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md)
 
