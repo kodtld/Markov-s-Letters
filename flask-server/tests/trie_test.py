@@ -3,6 +3,7 @@ Unittests for the Trie
 """
 import unittest
 from services.trie_service import Trie
+from services.markov_service import MarkovChain
 
 class TestTrie(unittest.TestCase):
     """
