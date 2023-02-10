@@ -179,10 +179,10 @@ class MarkovChain: # pylint: disable=R0903
             current_word = next_word
         return sentence.capitalize() + "."
 
-    def generate_two_sentence(self):
+    def generate_two_sentence(self, max_length=8):
         current_bigram = random.choice(list(self.bigrams.keys()))
         sentence = current_bigram.split()
-        while current_bigram in self.bigrams:
+        while current_bigram in self.bigrams and len(sentence) < max_length:
             possibilities = self.bigrams[current_bigram]
             next_word = None
             if possibilities:
@@ -201,6 +201,7 @@ if __name__ == "__main__":
     t.insert("The cat is sleeping")
     t.insert("The cat is playing")
     t.insert("The dog is barking")
+    t.insert_books()
     mc = MarkovChain(t)
     print(mc.generate_two_sentence())
     

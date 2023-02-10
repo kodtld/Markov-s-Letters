@@ -18,7 +18,7 @@ def index(word=None):
     markov = MarkovChain(trie)
     words = []
     for i in range(10): # pylint: disable=W0612
-        string = str(markov.generate_sentence(starting_word=word))
+        string = str(markov.generate_two_sentence(starting_word=word))
         words.append({"sentence": string})
     return words
 
