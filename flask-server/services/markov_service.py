@@ -36,27 +36,18 @@ class MarkovChain: # pylint: disable=R0903
             current_word = next_word
         return sentence.capitalize() + "."
 
-    def generate_two_sentence(self, starting_word=None, max_length=7):
-        """
-        Generates max_length sentences starting from starting_word
-        If no starting_word, chooses a random starting word
-        """
-        if starting_word is None:
-            current_word = random.choice(self.words)
-            previous_word = None
-        else:
-            current_word = starting_word
-            previous_word = None
-        sentence = current_word
-        while len(sentence.split()) < max_length:
-            next_words = self.bigrams.get((previous_word, current_word), None)
-            if next_words is None or not next_words:
+    def generate_two_sentence(self, max_length=8):
+        current_bigram = random.choice(list(self.bigrams.keys()))
+        sentence = current_bigram.split()
+        while current_bigram in self.bigrams and len(sentence) < max_length:
+            possibilities = self.bigrams[current_bigram]
+            next_word = None
+            if possibilities:
+                next_word = random.choice(list(possibilities.keys()))
+                if next_word is not None:
+                    sentence.append(next_word)
+            if next_word is None:
                 break
-            total_frequency = sum(next_words.values())
-            next_word = (random.choices(list(next_words.keys()),
-                weights=list(map(lambda x: x/total_frequency, next_words.values())))[0])
-            sentence += ' ' + next_word
-            previous_word = current_word
-            current_word = next_word
-        return sentence.capitalize() + "."
+            current_bigram = ' '.join(sentence[-2:])
+        return ' '.join(sentence)
 
