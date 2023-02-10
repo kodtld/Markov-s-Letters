@@ -12,6 +12,7 @@ class MarkovChain: # pylint: disable=R0903
         self.trie = trie
         self.words_and_data = trie.getter(trie)
         self.words = list(self.words_and_data.keys())
+        self.bigrams = trie.bigrams
 
     def generate_sentence(self, starting_word=None, max_length=7):
         """
@@ -34,3 +35,28 @@ class MarkovChain: # pylint: disable=R0903
             sentence += ' ' + next_word
             current_word = next_word
         return sentence.capitalize() + "."
+
+    def generate_two_sentence(self, starting_word=None, max_length=7):
+        """
+        Generates max_length sentences starting from starting_word
+        If no starting_word, chooses a random starting word
+        """
+        if starting_word is None:
+            current_word = random.choice(self.words)
+            previous_word = None
+        else:
+            current_word = starting_word
+            previous_word = None
+        sentence = current_word
+        while len(sentence.split()) < max_length:
+            next_words = self.bigrams.get((previous_word, current_word), None)
+            if next_words is None or not next_words:
+                break
+            total_frequency = sum(next_words.values())
+            next_word = (random.choices(list(next_words.keys()),
+                weights=list(map(lambda x: x/total_frequency, next_words.values())))[0])
+            sentence += ' ' + next_word
+            previous_word = current_word
+            current_word = next_word
+        return sentence.capitalize() + "."
+
