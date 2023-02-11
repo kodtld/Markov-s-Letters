@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-root
       - name: Run pylint
-        run: pylint $(find . -name "*.py" | xargs)
+        run: poetry run pylint $(find . -name "*.py" | xargs)
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Coverage report
