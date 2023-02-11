@@ -45,14 +45,13 @@ class Trie:
                     sentences = nltk.data.load('tokenizers/punkt/english.pickle')
                     for sentence in sentences.tokenize(text):
                         self.insert(sentence)
-                        
 
     def insert(self, sentence):
         """
-        Inserts sentences word by word into Trie
+        Inserts sentences word by word into Trie and creates Bigrams
         """
         words = sentence.split()
-        for i in range(len(words)):
+        for i in range(len(words)): # pylint: disable=C0200
             current = self.root
             for char in words[i]:
                 if char not in current.children:
@@ -74,9 +73,6 @@ class Trie:
                 self.bigrams[bigram][next_word] = 0
             self.bigrams[bigram][next_word] += 1
 
-
-
-        
     def search(self, word):
         """
         Searches if a word is present in the Trie
@@ -89,20 +85,16 @@ class Trie:
             current = current.children[char]
         return current.is_word or current.is_sentence
 
-    def getter(self,trie):
+    def frequency_of(self, word):
         """
-        Returns every word, their possible followers, and their frequency
-        Can be searched for a specific word by calling: getter(trie)['word']
+        Returns how many times a word is present in the Trie
         """
-        words_and_data = {}
-        stack = [("", trie.root)]
-        while stack:
-            word, node = stack.pop()
-            if node.is_word or node.is_sentence:
-                words_and_data[word] = (word ,node.frequency, node.next_words)
-            for child_char, child_node in node.children.items():
-                stack.append((word + child_char, child_node))
-        return words_and_data
+        current = self.root
+        for char in word:
+            if char not in current.children:
+                return None
+            current = current.children[char]
+        return current.frequency
 
     def next_word(self, word):
         """
@@ -115,17 +107,6 @@ class Trie:
                 return None
             current = current.children[char]
         return current.next_words
-
-    def frequency_of(self, word):
-        """
-        Returns how many times a word is present in the Trie
-        """
-        current = self.root
-        for char in word:
-            if char not in current.children:
-                return None
-            current = current.children[char]
-        return current.frequency
 
     def next_word_frequencies(self, word):
         """
@@ -141,5 +122,17 @@ class Trie:
             next_word_frequencies[next_word] = self.frequency_of(next_word)
         return next_word_frequencies
 
-
-    
+    def getter(self,trie):
+        """
+        Returns every word, their possible followers, and their frequency
+        Can be searched for a specific word by calling: getter(trie)['word']
+        """
+        words_and_data = {}
+        stack = [("", trie.root)]
+        while stack:
+            word, node = stack.pop()
+            if node.is_word or node.is_sentence:
+                words_and_data[word] = (word ,node.frequency, node.next_words)
+            for child_char, child_node in node.children.items():
+                stack.append((word + child_char, child_node))
+        return words_and_data
