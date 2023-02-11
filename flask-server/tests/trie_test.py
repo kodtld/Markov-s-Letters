@@ -62,7 +62,7 @@ class TestTrie(unittest.TestCase):
         Tests the getting of next possible words of a word from the Trie
         """
         self.assertEqual(self.trie.next_word("doing"), {'today', 'fine'})
-    
+
     def test_next_word_invalid(self):
         """
         Tests the getting of next possible words of an invalid word from the Trie
