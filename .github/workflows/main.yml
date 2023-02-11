@@ -20,7 +20,7 @@ jobs:
         run: poetry install --no-root
       - name: Run pylint (server.py and services)
         run: |
-          poetry run pylint server.py
+          poetry run pylint server
           poetry run pylint services
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
