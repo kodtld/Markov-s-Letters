@@ -1,3 +1,18 @@
+## For peer review
+After cloning the repository, assuming theres no complications, you should be able to run the program in http://localhost:5000/ by following these steps:
+```
+cd flask-server
+```
+```
+poetry install
+```
+```
+poetry shell
+```
+```
+python3 server.py
+```
+
 ## Documentation
 [Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
 [Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md) <br><br>
