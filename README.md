@@ -1,4 +1,10 @@
 ## For peer review
+### Current state
+At the moment in the frontend application you can only use state selector 1.
+- Select value 1 from the slider and hit "generate" to generate random sentences with random starting word.
+- Select value 1 from the slider, insert preferred word into input field, and hit "generate" to generate random sentences with preferred starting word (if found in the training data).
+- - **State 1 starting word can only be an singular word**
+### Run
 After cloning the repository, assuming theres no complications, you should be able to run the program in http://localhost:5000/ by following these steps:
 ```
 cd flask-server
