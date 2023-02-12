@@ -14,7 +14,7 @@ class MarkovChain: # pylint: disable=R0903
         self.words = list(self.words_and_data.keys())
         self.bigrams = trie.bigrams
 
-    def generate_sentence(self, starting_word=None, max_length=8):
+    def generate_sentence(self, starting_word=None, max_length=10):
         """
         Generates max_length sentences starting from starting_word
         If no starting_word, chooses a random starting word
@@ -36,14 +36,13 @@ class MarkovChain: # pylint: disable=R0903
             current_word = next_word
         return sentence.capitalize() + "."
 
-    def generate_two_sentence(self, max_length=8):
+    def generate_two_sentence(self, max_length=10):
         """
         Generates max_length two-state sentences starting from starting_bigram
         If no starting_bigram, chooses a random starting bigram
         """
         current_bigram = random.choice(list(self.bigrams.keys()))
         sentence = current_bigram.split()
-        print(sentence)
         while current_bigram in self.bigrams and len(sentence) < max_length:
             possibilities = self.bigrams[current_bigram]
             next_word = None

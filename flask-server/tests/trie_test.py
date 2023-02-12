@@ -14,13 +14,6 @@ class TestTrie(unittest.TestCase):
         self.trie.insert("I am doing fine thank you")
         self.trie.insert("What did you say my friend")
 
-    # def test_insert_books(self):
-    #     """
-    #     Tests the insert of books from resources/books
-    #     """
-    #     self.trie.insert_books()
-    #     self.assertEqual(len(self.trie.root.children), 91)
-
     def test_insert(self):
         """
         Tests the insert of a sentence

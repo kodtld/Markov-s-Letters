@@ -8,30 +8,58 @@ from services.markov_service import MarkovChain
 
 app = Flask(__name__)
 
-@app.route("/", methods=['POST'])
-def index(): # word=None, state=1
+@app.route("/", methods=['GET','POST'])
+def index(prompt=None, state=1):
     """
     Placeholder function
     """
     trie = Trie()
     trie.insert_books()
     markov = MarkovChain(trie)
-    sentences = []
+    sentences = [
+        {'sentence': 'Your'},
+        {'sentence': 'Generated'},
+        {'sentence': 'Sentences'},
+        {'sentence': 'Will'},
+        {'sentence': 'Appear'},
+        {'sentence': 'Here!'}
+        ]
+
+
     if request.method == "POST":
-        pass
-    for i in range(10): # pylint: disable=W0612
-        string = str(markov.generate_sentence())
-        sentences.append({"sentence": string})
+        state = int(request.form['slider'])
+        prompt = request.form['prompt']
+        if state == 1:
+            print("Ykköne")
+            sentences = one_state(markov,prompt)
+            print(sentences)
+            return render_template('index.html', sentences = sentences)
+
+        # if state in (2,3):
+        #     two_state(markov,prompt)
+
+        # if state == 3:
+        #     pass
 
     return render_template('index.html', sentences = sentences)
 
-# def one_state(markov, word=None):
+def one_state(markov, prompt=None):
+    """
+    Generates and returns dictionary of one-state Markov sentences
+    """
+    sentences = []
+    for i in range(6): # pylint: disable=W0612
+        if prompt == "":
+            string = str(markov.generate_sentence())
+        else:
+            string = str(markov.generate_sentence(prompt))
+        sentences.append({"sentence": string})
+    return sentences
+
+# def two_state(markov, prompt=None):
 #     pass
 
-# def two_state(markov, word=None):
-#     pass
-
-# def three_state(markov, word=None):
+# def three_state(markov, prompt=None):
 #     pass
 
 
