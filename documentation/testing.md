@@ -23,7 +23,16 @@ The more advance functionalities tested are as follows:
   - A nonexistent word returns None
 - The getter returns every word and their frequency and followers
 
+### Performance
+At the moment there's performance tests for the basic functionality of the trie such as:
+- Inserting the books into the trie
+- Searching for a specific word in the trie
+- Searching for the frequency of a specific word
+- Searching for the followers of a specific word
+- Searching for the frequencies of following words
+
 ## Run tests
+### Unittests
 To run the test you need to be in the flask-server repository.
 You can access the flask-server repository from the root folder with:
 ```
@@ -37,4 +46,9 @@ After running the tests, you can generate the coverage report with:
 ```
 coverage report -m
 
+```
+### Performance tests
+At the moment you can run the performance test/report for the trie_service from the flask-server directory with the following command:
+```
+python3 performance_trie.py
 ```
