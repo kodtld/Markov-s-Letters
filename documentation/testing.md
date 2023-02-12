@@ -34,12 +34,11 @@ At the moment there's performance tests for the basic functionality of the trie 
 - Searching for the frequencies of following words
 
 ## Markov
+### Basic functionality
 The basic functionalities tested are as follows:
 - Testing that generating a one-state sentence returns a sentence of valid length
 - Testing that generating a one-state sentence with given starting word generates a valid sentence
 - Testing that generating a two-state sentence returns a sentence of valid length
-
-### Basic functionality
 
 ## Run tests
 ### Unittests
