@@ -4,8 +4,10 @@
 [![codecov](https://codecov.io/gh/kodtld/Markov-s-Letters/branch/master/graph/badge.svg?token=GZHXEZIJ17)](https://codecov.io/gh/kodtld/Markov-s-Letters)
 
 ## Tests
-The tests cover the functionality of the trie_service class and its functions.
+The tests cover the functionality of the trie_service and markov_service classes and their functions.
 The coverage document linked above shows all of the tests. 
+
+## Trie
 
 ### Basic functionality
 The basic functionalities tested are as follows:
@@ -30,6 +32,14 @@ At the moment there's performance tests for the basic functionality of the trie 
 - Searching for the frequency of a specific word
 - Searching for the followers of a specific word
 - Searching for the frequencies of following words
+
+## Markov
+The basic functionalities tested are as follows:
+- Testing that generating a one-state sentence returns a sentence of valid length
+- Testing that generating a one-state sentence with given starting word generates a valid sentence
+- Testing that generating a two-state sentence returns a sentence of valid length
+
+### Basic functionality
 
 ## Run tests
 ### Unittests
