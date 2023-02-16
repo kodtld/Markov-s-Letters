@@ -8,11 +8,19 @@
       height: 100vh;
       overflow-x: hidden;
     }
+
+    h1{
+      color: #FF474A;
+      font-size: 60px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-family: fantasy;
+    }
     
     .main_container{
         background-color: #edf2f4;
         border-radius: 10px;
-        padding: 100px;
+        padding: 25px;
         border: 4px double #FF474A;
     }
 
@@ -58,12 +66,20 @@
         color: #101419;
         border: 3px double #FF474A;
     }
+
+    label{
+      font-family: 'Courier New', monospace;
+      color: #101419;
+      font-weight: 500;
+      font-size: larger;
+    }
     </style>
     
     <body class="body">
         <div class="main_container">
+          <h1>Markov's Sentences</h1>
             <form action="{{ url_for('index') }}" method="post">
-                <label>Starting prompt:</label>
+                <label>Starting prompt:</label><br> 
                 <input type="text" class="prompt" id="prompt" name="prompt" placeholder="Starting prompt">
                 <br><br>
                 <label for="slider">Select a state for Markov (1, 2, or 3/Full):</label>
