@@ -7,11 +7,13 @@
       width: 100%;
       height: 100vh;
       overflow-x: hidden;
+      
+      
     }
 
     h1{
       color: #FF474A;
-      font-size: 60px;
+      font-size: 50px;
       text-align: center;
       letter-spacing: 2px;
       font-family: fantasy;
@@ -20,13 +22,13 @@
     .main_container{
         background-color: #edf2f4;
         border-radius: 10px;
-        padding: 25px;
+        padding: 0px 40px;
         border: 4px double #FF474A;
     }
 
     .slider {
       -webkit-appearance: none;
-      width: 80%;
+      width: 92.5%;
       height: 15px;
       background: #ddd;
       outline: none;
@@ -38,8 +40,9 @@
     .slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 20px;
-      height: 20px;
+      width: 35px;
+      border-radius: 5px;
+      height: 35px;
       background: #FF474A;
       cursor: pointer;
     }
@@ -53,6 +56,13 @@
     
     .prompt {
         background-color: #F2EEBA;
+        padding: 20px;
+        font-size: 20px;
+        font-family: 'Courier New', monospace;
+        color: #101419;
+        border: 3px double #FF474A;
+        border-radius: 10px;
+        width: 46rem;
     }
 
     .gen_sentence{
@@ -66,12 +76,36 @@
         color: #101419;
         border: 3px double #FF474A;
     }
+    output{
+      margin-left: 1.85%;
+      border-radius: 10px;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      color: #101419;
+      font-size: 36px;
+      background-color: #F2EEBA;
+      border: 3px double #FF474A;
+    }
 
     label{
       font-family: 'Courier New', monospace;
       color: #101419;
       font-weight: 500;
-      font-size: larger;
+      font-size: 28px;
+      text-align: center;
+
+    }
+
+    .button{
+      color: #101419;
+      background-color: #FF474A;
+      padding: 15px 100px;
+      border: 0px;
+      border-radius: 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 22px;
+      font-weight: 600;
+      border: 3px double #ddd;
     }
     </style>
     
@@ -79,15 +113,15 @@
         <div class="main_container">
           <h1>Markov's Sentences</h1>
             <form action="{{ url_for('index') }}" method="post">
-                <label>Starting prompt:</label><br> 
-                <input type="text" class="prompt" id="prompt" name="prompt" placeholder="Starting prompt">
+                <label>Starting prompt:</label>
+                <input type="text" class="prompt" id="prompt" name="prompt">
                 <br><br>
                 <label for="slider">Select a state for Markov (1, 2, or 3/Full):</label>
                 <br><br>
                 <input type="range" id="slider" name="slider" class="slider" min="1" max="3" value="2" step="1" oninput="sliderOutput.value = slider.value">
                 <output name="sliderOutput" id="sliderOutput">2</output>
                 <br><br>
-                <input type="submit" value="Generate">
+                <input type="submit" value="Generate" class="button">
               </form>
             <div>
                 {% for i in sentences %}
