@@ -30,13 +30,12 @@ def index(prompt=None, state=1):
         state = int(request.form['slider'])
         prompt = request.form['prompt']
         if state == 1:
-            print("Ykköne")
             sentences = one_state(markov,prompt)
-            print(sentences)
             return render_template('index.html', sentences = sentences)
 
-        # if state in (2,3):
-        #     two_state(markov,prompt)
+        if state == 2:
+            sentences = two_state(markov,prompt)
+            return render_template('index.html', sentences = sentences)
 
         # if state == 3:
         #     pass
@@ -56,8 +55,19 @@ def one_state(markov, prompt=None):
         sentences.append({"sentence": string})
     return sentences
 
-# def two_state(markov, prompt=None):
-#     pass
+def two_state(markov, prompt=None):
+    """
+    Generates and returns dictionary of two-state Markov sentences
+    """
+    sentences = []
+    for i in range(6): # pylint: disable=W0612
+        if prompt == "" or len(prompt.split()) != 2:
+            string = str(markov.generate_two_sentence())
+        else:
+            print("ala")
+            string = str(markov.generate_two_sentence(prompt))
+        sentences.append({"sentence": string})
+    return sentences
 
 # def three_state(markov, prompt=None):
 #     pass
