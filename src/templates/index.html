@@ -31,6 +31,7 @@
       width: 92.5%;
       height: 15px;
       background: #ddd;
+      color: #FF474A;
       outline: none;
       opacity: 0.7;
       -webkit-transition: .2s;
@@ -44,6 +45,7 @@
       border-radius: 5px;
       height: 35px;
       background: #FF474A;
+      color: #FF474A;
       cursor: pointer;
     }
     
@@ -51,6 +53,7 @@
       width: 20px;
       height: 20px;
       background: #4caf50;
+      color: #FF474A;
       cursor: pointer;
     }
     
@@ -114,7 +117,7 @@
           <h1>Markov's Sentences</h1>
             <form action="{{ url_for('index') }}" method="post">
                 <label>Starting prompt:</label>
-                <input type="text" class="prompt" id="prompt" name="prompt">
+                <input type="text" class="prompt" id="prompt" name="prompt" autocomplete="off">
                 <br><br>
                 <label for="slider">Select a state for Markov (1, 2, or 3/Full):</label>
                 <br><br>

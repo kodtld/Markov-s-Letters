@@ -64,7 +64,6 @@ def two_state(markov, prompt=None):
         if prompt == "" or len(prompt.split()) != 2:
             string = str(markov.generate_two_sentence())
         else:
-            print("ala")
             string = str(markov.generate_two_sentence(prompt))
         sentences.append({"sentence": string})
     return sentences
