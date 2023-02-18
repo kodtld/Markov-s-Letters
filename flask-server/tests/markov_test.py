@@ -32,14 +32,24 @@ class TestMarkovChain(unittest.TestCase):
         result = markov_chain.generate_sentence(starting_word="word", max_length=10)
         self.assertTrue(result.startswith("Word"))
 
-    def test_generate_two_sentence(self):
+    def test_generate_two_sentence_no_bigram(self):
         """
-        Test if generate_two_sentence returns a string of the expected length
+        Test if generate_two_sentence with no starting bigram returns a string of the expected length
         """
         markov_chain = MarkovChain(self.trie)
         result = markov_chain.generate_two_sentence(max_length=10)
         self.assertIsInstance(result, str)
         self.assertTrue(2 <= len(result.split()) <= 10)
+
+    def test_generate_two_sentence_set_bigram(self):
+        """
+        Test if generate_two_sentence with a starting bigram returns a string of the expected length
+        """
+        markov_chain = MarkovChain(self.trie)
+        result = markov_chain.generate_two_sentence(starting_word="that they",max_length=10)
+        self.assertIsInstance(result, str)
+        self.assertTrue(2 <= len(result.split()) <= 10)
+
 
 if __name__ == '__main__':
     unittest.main()
