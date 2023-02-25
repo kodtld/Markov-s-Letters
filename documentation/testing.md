@@ -58,12 +58,13 @@ coverage report -m
 ```
 ## Performance tests
 ### Trie_service
-![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Trie_service_performance.jpg)
 
 You can run the performance test/report for the trie_service from the flask-server directory with the following command:
 ```
 python3 performance_trie.py
 ```
+![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Trie_service_performance.jpg)
+
 ### Markov_service
 
 You can run the performance test/report for the markov_service from the flask-server directory with the following command:
