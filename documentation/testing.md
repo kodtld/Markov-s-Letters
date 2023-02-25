@@ -63,7 +63,7 @@ You can run the performance test/report for the trie_service from the flask-serv
 ```
 python3 performance_trie.py
 ```
-![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Trie_service_performance.jpg)
+![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATE_Trie_service_performance.jpg)
 
 ### Markov_service
 
