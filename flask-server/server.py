@@ -11,11 +11,18 @@ app = Flask(__name__)
 @app.route("/", methods=['GET','POST'])
 def index(prompt=None, state=1):
     """
-    Placeholder function
+    Render the index.html template with a list of generated sentences.
+
+    Args:
+        prompt (str, optional): A prompt for the Markov chain to generate sentences from.
+            Defaults to None.
+        state (int, optional): The state (i.e. the order of the Markov chain) to use for
+            sentence generation. Defaults to 1.
+
+    Returns:
+        str: The rendered HTML template.
+
     """
-    trie = Trie()
-    trie.insert_books()
-    markov = MarkovChain(trie)
     sentences = [
         {'sentence': 'Your'},
         {'sentence': 'Generated'},
@@ -25,26 +32,27 @@ def index(prompt=None, state=1):
         {'sentence': 'Here!'}
         ]
 
-
     if request.method == "POST":
         state = int(request.form['slider'])
         prompt = request.form['prompt']
-        if state == 1:
-            sentences = one_state(markov,prompt)
-            return render_template('index.html', sentences = sentences)
-
-        if state == 2:
-            sentences = two_state(markov,prompt)
-            return render_template('index.html', sentences = sentences)
-
-        # if state == 3:
-        #     pass
+        trie = Trie(state)
+        trie.insert_books()
+        markov = MarkovChain(trie)
+        sentences = generate_sentences(markov,prompt)
+        return render_template('index.html', sentences = sentences)
 
     return render_template('index.html', sentences = sentences)
 
-def one_state(markov, prompt=None):
+def generate_sentences(markov, prompt=None):
     """
     Generates and returns dictionary of one-state Markov sentences
+
+    Parameters:
+    markov (MarkovChain): An instance of MarkovChain class
+    prompt (str, optional): A string prompt to generate sentences from. Defaults to None.
+
+    Returns:
+    list: A list of dictionaries containing generated sentences
     """
     sentences = []
     for i in range(6): # pylint: disable=W0612
@@ -54,23 +62,6 @@ def one_state(markov, prompt=None):
             string = str(markov.generate_sentence(prompt))
         sentences.append({"sentence": string})
     return sentences
-
-def two_state(markov, prompt=None):
-    """
-    Generates and returns dictionary of two-state Markov sentences
-    """
-    sentences = []
-    for i in range(6): # pylint: disable=W0612
-        if prompt == "" or len(prompt.split()) != 2:
-            string = str(markov.generate_two_sentence())
-        else:
-            string = str(markov.generate_two_sentence(prompt))
-        sentences.append({"sentence": string})
-    return sentences
-
-# def three_state(markov, prompt=None):
-#     pass
-
 
 if __name__ == "__main__":
     app.run(debug=True)

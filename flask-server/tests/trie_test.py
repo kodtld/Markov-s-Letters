@@ -9,7 +9,7 @@ class TestTrie(unittest.TestCase):
     Includes the tests for the Trie
     """
     def setUp(self):
-        self.trie = Trie()
+        self.trie = Trie(1)
         self.trie.insert("Hello world how are you doing today")
         self.trie.insert("I am doing fine thank you")
         self.trie.insert("What did you say my friend")
@@ -66,7 +66,7 @@ class TestTrie(unittest.TestCase):
         """
         Tests the getter of every word and their frequency and followers
         """
-        self.assertEqual(len(self.trie.getter(self.trie)), 16)
+        self.assertEqual(len(self.trie.getter()), 16)
 
     def test_next_word_frequencies_valid(self):
         """

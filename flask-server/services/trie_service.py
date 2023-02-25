@@ -9,6 +9,13 @@ import nltk.data
 class TrieNode: # pylint: disable=R0903
     """
     Boilerplate for a node of the Trie
+
+    Attributes:
+    - children: A dictionary containing children nodes of the current node
+    - is_word: A boolean indicating if the current node represents the end of a word
+    - is_sentence: A boolean indicating if the current node represents the end of a sentence
+    - next_words: A set containing the possible next words following the current node
+    - frequency: An integer representing the frequency of the current word in the Trie
     """
     def __init__(self):
         self.children = {}
@@ -20,14 +27,24 @@ class TrieNode: # pylint: disable=R0903
 class Trie:
     """
     The Trie (prefix-tree) for storing the words and its operations
+
+    Attributes:
+    - root: A TrieNode object representing the root node of the Trie
+    - bigrams: A dictionary containing bigram frequency data for the Trie
+    - ngram_length: An integer representing the length of N-grams to create from inserted sentences
     """
-    def __init__(self):
+    def __init__(self, ngram_length = 2):
         self.root = TrieNode()
         self.bigrams = {}
+        self.ngram_length = ngram_length
 
     def insert_books(self): # pragma: no cover
         """
-        Gets and inserts (self.insert) .txt format books into Trie from resources/books
+        Gets and inserts .txt format books into Trie from resources/books.
+
+        Parameters: None
+
+        Returns: None
         """
         banned_chars = string.punctuation + string.digits + ":;()/$'!?“”'‘’-"
         table = str.maketrans("", "", banned_chars)
@@ -48,8 +65,14 @@ class Trie:
 
     def insert(self, sentence):
         """
-        Inserts sentences word by word into Trie and creates Bigrams
+        Inserts words from a sentence into the Trie, creating N-grams in the process.
+
+        Parameters:
+        - sentence: A string representing a sentence to be inserted into the Trie.
+
+        Returns: None
         """
+        n = self.ngram_length
         words = sentence.split()
         for i in range(len(words)): # pylint: disable=C0200
             current = self.root
@@ -64,19 +87,25 @@ class Trie:
             current.frequency += 1
         current.is_sentence = True
 
-        for i in range(len(words) - 1):
-            bigram = words[i] + ' ' + words[i+1]
-            if bigram not in self.bigrams:
-                self.bigrams[bigram] = {}
-            next_word = words[i+2] if i < len(words) - 2 else None
-            if next_word not in self.bigrams[bigram]:
-                self.bigrams[bigram][next_word] = 0
-            self.bigrams[bigram][next_word] += 1
+        for i in range(len(words) - n + 1):
+            ngram = " ".join(words[i:i+n])
+            if ngram not in self.bigrams:
+                self.bigrams[ngram] = {}
+            next_word = words[i+n] if i < len(words) - n else None
+            if next_word not in self.bigrams[ngram]:
+                self.bigrams[ngram][next_word] = 0
+            self.bigrams[ngram][next_word] += 1
 
     def search(self, word):
         """
-        Searches if a word is present in the Trie
-        Returns True or False
+        Searches for a word in the Trie.
+
+        Parameters:
+        - word: A string representing the word to search for in the Trie.
+
+        Returns:
+        - True: If the word is found in the Trie.
+        - False: If the word is not found in the Trie.
         """
         current = self.root
         for char in word:
@@ -87,7 +116,14 @@ class Trie:
 
     def frequency_of(self, word):
         """
-        Returns how many times a word is present in the Trie
+        Gets the frequency of a word in the Trie.
+
+        Parameters:
+        - word: A string representing the word to get the frequency of in the Trie.
+
+        Returns:
+        - An integer representing the frequency of the word in the Trie.
+        - None: If the word is not found in the Trie.
         """
         current = self.root
         for char in word:
@@ -98,8 +134,14 @@ class Trie:
 
     def next_word(self, word):
         """
-        Searches for the next possible words of given word
-        Returns None or dictionary of words
+        Gets the possible next words following a given word in the Trie.
+
+        Parameters:
+        - word: A string representing the word to get the possible next words of in the Trie.
+
+        Returns:
+        - None: If the given word is not in the Trie.
+        - A set containing the possible next words following the given word in the Trie.
         """
         current = self.root
         for char in word:
@@ -110,7 +152,16 @@ class Trie:
 
     def next_word_frequencies(self, word):
         """
-        Returns possible words after parameter word and their frequencies
+        Returns a dictionary of possible next words for the given word and their
+        frequencies in the Trie. If the given word is not found in the Trie,
+        returns None.
+
+        Parameters:
+        word (str): The word for which to find the next word frequencies.
+
+        Returns:
+        dict: A dictionary mapping possible next words to their frequencies in the
+            Trie, or None if the given word is not found in the Trie.
         """
         current = self.root
         for char in word:
@@ -122,13 +173,18 @@ class Trie:
             next_word_frequencies[next_word] = self.frequency_of(next_word)
         return next_word_frequencies
 
-    def getter(self,trie):
+    def getter(self):
         """
-        Returns every word, their possible followers, and their frequency
-        Can be searched for a specific word by calling: getter(trie)['word']
+        Returns a dictionary containing information about each word in the Trie.
+        Each key in the dictionary is a word in the Trie, and the value is a tuple
+        containing the word, its frequency in the Trie, and a set of possible
+        next words.
+
+        Returns:
+        dict: A dictionary containing information about each word in the Trie.
         """
         words_and_data = {}
-        stack = [("", trie.root)]
+        stack = [("", self.root)]
         while stack:
             word, node = stack.pop()
             if node.is_word or node.is_sentence:

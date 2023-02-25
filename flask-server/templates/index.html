@@ -119,10 +119,10 @@
                 <label>Starting prompt:</label>
                 <input type="text" class="prompt" id="prompt" name="prompt" autocomplete="off">
                 <br><br>
-                <label for="slider">Select a state for Markov (1, 2, or 3/Full):</label>
+                <label for="slider">Select a state for Markov (1-5):</label>
                 <br><br>
-                <input type="range" id="slider" name="slider" class="slider" min="1" max="3" value="2" step="1" oninput="sliderOutput.value = slider.value">
-                <output name="sliderOutput" id="sliderOutput">2</output>
+                <input type="range" id="slider" name="slider" class="slider" min="1" max="5" value="3" step="1" oninput="sliderOutput.value = slider.value">
+                <output name="sliderOutput" id="sliderOutput">3</output>
                 <br><br>
                 <input type="submit" value="Generate" class="button">
               </form>
