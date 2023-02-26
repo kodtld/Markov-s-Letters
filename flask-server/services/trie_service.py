@@ -4,7 +4,7 @@ and TrieNode class for initializing the nodes
 """
 import os
 import string
-import nltk.data
+from nltk.tokenize import PunktSentenceTokenizer
 
 class TrieNode: # pylint: disable=R0903
     """
@@ -59,8 +59,9 @@ class Trie:
                 with open(k) as files: # pylint: disable=W1514
                     lines = files.read()
                     text = lines.translate(table)
-                    sentences = nltk.data.load('tokenizers/punkt/english.pickle')
-                    for sentence in sentences.tokenize(text):
+                    tokenizer = PunktSentenceTokenizer()
+                    # sentences = nltk.data.load('tokenizers/punkt/english.pickle')
+                    for sentence in tokenizer.tokenize(text):
                         self.insert(sentence)
 
     def insert(self, sentence):
