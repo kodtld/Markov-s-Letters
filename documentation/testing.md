@@ -1,6 +1,7 @@
 # Test Document
 
 ## Coverage
+![example workflow](https://github.com/kodtld/Markov-s-Letters/blob/master/.github/workflows/main.yml/badge.svg)
 [![codecov](https://codecov.io/gh/kodtld/Markov-s-Letters/branch/master/graph/badge.svg?token=GZHXEZIJ17)](https://codecov.io/gh/kodtld/Markov-s-Letters)
 
 ## Tests
