@@ -12,8 +12,9 @@ class TestMarkovChain(unittest.TestCase):
     def setUp(self):
         self.trie = Trie(1)
         self.trie.insert("On the other hand, we denounce with righteous hate and dislike")
-        self.trie.insert("That they cannot foresee the pain and trouble that are bound to")
-        self.trie.insert("That they cannot on the mat puke unfortunately")
+        self.trie.insert("that they cannot foresee the pain and trouble that are bound to")
+        self.trie.insert("that they cannot on the mat puke unfortunately")
+        self.trie.insert("that they will see a cat in the mat")
         self.trie.insert("Word is a bird")
         self.trie.insert("The cat in the hat sat on in a hat")
         self.markov_chain = MarkovChain(self.trie)
