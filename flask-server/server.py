@@ -46,7 +46,7 @@ def index(prompt=None, state=1):
 
 def generate_sentences(markov, prompt=None):
     """
-    Generates and returns dictionary of one-state Markov sentences
+    Calls the markov_service and returns dictionary of state Markov sentences
 
     Parameters:
     markov (MarkovChain): An instance of MarkovChain class
