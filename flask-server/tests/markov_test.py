@@ -52,8 +52,22 @@ class TestMarkovChain(unittest.TestCase):
         self.trie.insert("Word is a bird")
         self.trie.insert("The cat in the hat sat on in a hat")
         self.markov_chain = MarkovChain(self.trie)
-        result = self.markov_chain.handle_starting_prompt("in", 2)
+        result = self.markov_chain.handle_starting_prompt("in", 3)
         self.assertIn(result["sentence"][0], ["in", "the", "hat", "mat"])
+    
+    def test_handle_starting_prompt_shorter_no_found_matches(self):
+        """
+        Test the handling of a propmpt shorter in length to the degree with no matching Ngrams
+        """
+        self.trie = Trie(3)
+        self.trie.insert("On the other hand, we denounce with righteous hate and dislike")
+        self.trie.insert("that they cannot foresee the pain and trouble that are bound to")
+        self.trie.insert("Word is a bird")
+        self.trie.insert("The cat in the hat sat on in a hat")
+        self.markov_chain = MarkovChain(self.trie)
+        result = self.markov_chain.handle_starting_prompt("suomi", 3)
+        self.assertIsInstance(result['sentence'][0], str)
+        self.assertTrue(1 <= len(result["sentence"]) <= 10)
 
 if __name__ == '__main__':
     unittest.main()
