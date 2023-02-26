@@ -1,3 +1,8 @@
+# Markov's Sentences
+[![CI](https://github.com/kodtld/Markov-s-Letters/actions/workflows/main.yml/badge.svg)](https://github.com/kodtld/Markov-s-Letters/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/kodtld/Markov-s-Letters/branch/master/graph/badge.svg?token=GZHXEZIJ17)](https://codecov.io/gh/kodtld/Markov-s-Letters)
+![Markov UI](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_UI.png)
+
 ## Documentation
 [Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
 [Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md) <br><br>
