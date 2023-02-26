@@ -5,7 +5,6 @@ description = ""
 authors = ["kodtld <kodu@live.fi>"]
 readme = "README.md"
 
-
 [tool.poetry.dependencies]
 python = "^3.8"
 flask = "^2.2.2"
@@ -14,9 +13,6 @@ nltk = "^3.8.1"
 pytest = "^7.2.1"
 pylint = "^2.15.10"
 virtualenv = "^20.19.0"
-
-
-
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.1.0"
