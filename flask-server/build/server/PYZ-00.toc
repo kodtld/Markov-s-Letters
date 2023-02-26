@@ -1,0 +1,1 @@
+('/home/kxsalmi/Markov-s-Letters/flask-server/build/server/PYZ-00.pyz', [])

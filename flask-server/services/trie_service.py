@@ -4,6 +4,7 @@ and TrieNode class for initializing the nodes
 """
 import os
 import string
+import nltk
 from nltk.tokenize import PunktSentenceTokenizer
 
 class TrieNode: # pylint: disable=R0903
@@ -46,7 +47,7 @@ class Trie:
 
         Returns: None
         """
-        banned_chars = string.punctuation + string.digits + ":;()/$'!?“”'‘’-"
+        banned_chars = string.punctuation + string.digits + "-&_?!ãĩŃńōœũūǎǑǒǓǔǕǖǗǘǙǚǛǜɑṣṫṭṳṵṷṹṻỳỵỷỹ”“‘"
         table = str.maketrans("", "", banned_chars)
 
         absolute_path = os.path.dirname(__file__)
@@ -56,7 +57,7 @@ class Trie:
         for filename in os.listdir(directory):
             k = os.path.join(directory, filename)
             if os.path.isfile(k):
-                with open(k) as files: # pylint: disable=W1514
+                with open(k,encoding='UTF-8',errors="ignore") as files: # pylint: disable=W1514
                     lines = files.read()
                     text = lines.translate(table)
                     tokenizer = PunktSentenceTokenizer()

@@ -2,6 +2,7 @@
 Flask application for the backend.
 Used to manage routes and to use functions.
 """
+
 from flask import Flask, render_template, request
 from services.trie_service import Trie
 from services.markov_service import MarkovChain
