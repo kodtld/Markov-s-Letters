@@ -35,3 +35,5 @@ Once the application is running, you need to manually open localhost:5000 in a b
 [Report](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/weekly_reports/Week_4.md)
 ### Week 5
 [Report](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/weekly_reports/Week_5.md)
+### Week 6
+[Report](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/weekly_reports/Week_6.md)
