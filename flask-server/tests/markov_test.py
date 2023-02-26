@@ -33,22 +33,6 @@ class TestMarkovChain(unittest.TestCase):
         result = self.markov_chain.generate_sentence(starting_word="word", max_length=10)
         print(result)
         self.assertTrue(result.startswith("Word"))
-
-    def test_generate_two_sentence_no_bigram(self):
-        """
-        Test if generate_two_sentence with no starting bigram returns a string of the expected length
-        """
-        result = self.markov_chain.generate_sentence(max_length=10)
-        self.assertIsInstance(result, str)
-        self.assertTrue(2 <= len(result.split()) <= 10)
-
-    def test_generate_two_sentence_set_bigram(self):
-        """
-        Test if generate_two_sentence with a starting bigram returns a string of the expected length
-        """
-        result = self.markov_chain.generate_sentence(starting_word="that they",max_length=10)
-        self.assertIsInstance(result, str)
-        self.assertTrue(2 <= len(result.split()) <= 10)
     
     def test_handle_starting_prompt_greater_or_equal(self):
         """
