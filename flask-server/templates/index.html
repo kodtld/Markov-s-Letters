@@ -31,6 +31,7 @@
       width: 92.5%;
       height: 15px;
       background: #ddd;
+      z-index: 1;
       color: #FF474A;
       outline: none;
       opacity: 0.7;
@@ -110,6 +111,66 @@
       font-weight: 600;
       border: 3px double #ddd;
     }
+    .help-tip{
+    text-align: center;
+    background-color: #FF474A;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 26px;
+    cursor: default;
+}
+
+  .help-tip:before{
+      content:'?';
+      font-weight: bold;
+      color:#fff;
+  }
+
+  .help-tip:hover p{
+      display:block;
+      transform-origin: 100% 0%;
+
+      -webkit-animation: fadeIn 0.3s ease-in-out;
+      animation: fadeIn 0.3s ease-in-out;
+
+  }
+
+  .help-tip p{    /* The tooltip */
+      display: none;
+      text-align: left;
+      background-color: #101419;
+      padding: 20px;
+      width: 700px;
+      position: relative;
+      z-index: 100;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      right: -4px;
+      color: #FFF;
+      font-size: 18px;
+      line-height: 1.4;
+  }
+
+  /* CSS animation */
+
+  @-webkit-keyframes fadeIn {
+      0% { 
+          opacity:0; 
+          transform: scale(0.6);
+      }
+
+      100% {
+          opacity:100%;
+          transform: scale(1);
+      }
+  }
+
+  @keyframes fadeIn {
+      0% { opacity:0; }
+      100% { opacity:100%; }
+  }
     </style>
     
     <body class="body">
@@ -119,7 +180,15 @@
                 <label>Starting prompt:</label>
                 <input type="text" class="prompt" id="prompt" name="prompt" autocomplete="off">
                 <br><br>
-                <label for="slider">Select a state for Markov (1-5):</label>
+                <label for="slider">Select a degree for the Markov (1-5):</label>
+                <div class="help-tip">
+                  <p>Degree 1: A Markov chain of degree 1 only considers the current state and its immediate successor. <br><br>
+                    Degree 2: A Markov chain of degree 2 considers the current state, its immediate successor, and the state that precedes the current state.<br><br>
+                    Degree 3: A Markov chain of degree 3 considers the current state, its immediate successor, the state that precedes the current state, and the state that precedes the predecessor of the current state.<br><br>
+                    Degree 4: A Markov chain of degree 4 considers the current state, its immediate successor, the two states that precede the current state, and the state that precedes the predecessor of the current state.<br><br>
+                    Degree 5: A Markov chain of degree 5 considers the current state, its immediate successor, the two states that precede the current state, and the two states that precede the predecessor of the current state.<br><br>
+                    </p>
+                </div>
                 <br><br>
                 <input type="range" id="slider" name="slider" class="slider" min="1" max="5" value="3" step="1" oninput="sliderOutput.value = slider.value">
                 <output name="sliderOutput" id="sliderOutput">3</output>
