@@ -57,11 +57,7 @@ class Trie:
                     lines = files.read()
                     text = lines.translate(table)
                     tokenizer = PunktSentenceTokenizer()
-                    # sentences = nltk.data.load('tokenizers/punkt/english.pickle')
                     for sentence in tokenizer.tokenize(text):
-                        print("-----------")
-                        print(sentence)
-                        print("-----------")
                         self.insert(sentence)
 
     def insert(self, sentence):
