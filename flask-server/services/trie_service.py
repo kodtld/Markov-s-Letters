@@ -10,7 +10,6 @@ from nltk.tokenize import PunktSentenceTokenizer
 class TrieNode: # pylint: disable=R0903
     """
     Boilerplate for a node of the Trie
-
     Attributes:
     - children: A dictionary containing children nodes of the current node
     - is_word: A boolean indicating if the current node represents the end of a word
@@ -28,7 +27,6 @@ class TrieNode: # pylint: disable=R0903
 class Trie:
     """
     The Trie (prefix-tree) for storing the words and its operations
-
     Attributes:
     - root: A TrieNode object representing the root node of the Trie
     - bigrams: A dictionary containing bigram frequency data for the Trie
@@ -42,12 +40,10 @@ class Trie:
     def insert_books(self): # pragma: no cover
         """
         Gets and inserts .txt format books into Trie from resources/books.
-
         Parameters: None
-
         Returns: None
         """
-        banned_chars = string.punctuation + string.digits + "-&_?!ãĩŃńōœũūǎǑǒǓǔǕǖǗǘǙǚǛǜɑṣṫṭṳṵṷṹṻỳỵỷỹ”“‘"
+        banned_chars = string.digits + "-;&_?!ãĩŃńōœũūǎǑǒǓǔǕǖǗǘǙǚǛǜɑṣṫṭṳṵṷṹṻỳỵỷỹ”“‘" + '"'
         table = str.maketrans("", "", banned_chars)
 
         absolute_path = os.path.dirname(__file__)
@@ -63,15 +59,16 @@ class Trie:
                     tokenizer = PunktSentenceTokenizer()
                     # sentences = nltk.data.load('tokenizers/punkt/english.pickle')
                     for sentence in tokenizer.tokenize(text):
+                        print("-----------")
+                        print(sentence)
+                        print("-----------")
                         self.insert(sentence)
 
     def insert(self, sentence):
         """
         Inserts words from a sentence into the Trie, creating N-grams in the process.
-
         Parameters:
         - sentence: A string representing a sentence to be inserted into the Trie.
-
         Returns: None
         """
         n = self.ngram_length
@@ -101,10 +98,8 @@ class Trie:
     def search(self, word):
         """
         Searches for a word in the Trie.
-
         Parameters:
         - word: A string representing the word to search for in the Trie.
-
         Returns:
         - True: If the word is found in the Trie.
         - False: If the word is not found in the Trie.
@@ -119,10 +114,8 @@ class Trie:
     def frequency_of(self, word):
         """
         Gets the frequency of a word in the Trie.
-
         Parameters:
         - word: A string representing the word to get the frequency of in the Trie.
-
         Returns:
         - An integer representing the frequency of the word in the Trie.
         - None: If the word is not found in the Trie.
@@ -137,10 +130,8 @@ class Trie:
     def next_word(self, word):
         """
         Gets the possible next words following a given word in the Trie.
-
         Parameters:
         - word: A string representing the word to get the possible next words of in the Trie.
-
         Returns:
         - None: If the given word is not in the Trie.
         - A set containing the possible next words following the given word in the Trie.
@@ -157,10 +148,8 @@ class Trie:
         Returns a dictionary of possible next words for the given word and their
         frequencies in the Trie. If the given word is not found in the Trie,
         returns None.
-
         Parameters:
         word (str): The word for which to find the next word frequencies.
-
         Returns:
         dict: A dictionary mapping possible next words to their frequencies in the
             Trie, or None if the given word is not found in the Trie.
@@ -181,7 +170,6 @@ class Trie:
         Each key in the dictionary is a word in the Trie, and the value is a tuple
         containing the word, its frequency in the Trie, and a set of possible
         next words.
-
         Returns:
         dict: A dictionary containing information about each word in the Trie.
         """

@@ -38,7 +38,7 @@ class TestMarkovChain(unittest.TestCase):
         Test if generate_sentence starts with the specified starting word
         """
         result = self.markov_chain.generate_sentence(starting_word="suomi", max_length=10)
-        self.assertRegex(result, r"^[A-Za-z]+\.$")
+        self.assertEqual(result, "Suomi")
 
     def test_handle_starting_prompt_greater_or_equal(self):
         """
