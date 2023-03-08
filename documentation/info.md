@@ -7,6 +7,9 @@
 ### Search
 ![Trie_3](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_3.png)
 ## Markov Chain
+### Basic Idea
 ![Markov 1](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info1.jpeg)
+### Weigth
 ![Markov 2](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info2.jpeg)
+### Generation
 ![Markov GIF](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info.gif)
