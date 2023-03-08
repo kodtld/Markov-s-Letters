@@ -1,5 +1,9 @@
 # General Information
 ## Trie (Prefix-tree)
-
+![Trie_1](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_1.png)
+![Trie_2](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_2.png)
+![Trie_3](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_3.png)
 ## Markov Chain
-
+![Markov 1](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info1.jpeg)
+![Markov 2](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info2.jpeg)
+![Markov GIF](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info.gif)
