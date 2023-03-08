@@ -16,3 +16,5 @@
 ![Markov 2](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info2.jpeg)
 ### Generation
 ![Markov GIF](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_info.gif)
+### Source
+[From “What is a Markov Model” to “Here is how Markov Models Work” by Alexander Dejeu](https://hackernoon.com/from-what-is-a-markov-model-to-here-is-how-markov-models-work-1ac5f4629b71)
