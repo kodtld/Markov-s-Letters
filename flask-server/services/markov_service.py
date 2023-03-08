@@ -16,8 +16,6 @@ class MarkovChain:
     """
     def __init__(self, trie):
         self.trie = trie
-        self.words_and_data = trie.getter()
-        self.words = list(self.words_and_data.keys())
         self.ngrams = trie.bigrams
 
     def generate_sentence(self, starting_word=None, max_length=50):
@@ -46,11 +44,14 @@ class MarkovChain:
         while current_ngram in self.ngrams and len(sentence) < max_length:
             possibilities = self.ngrams[current_ngram]
             next_word = None
+
             if possibilities:
-                next_word = random.choice(list(possibilities.keys()))
+                weighted_possibilities = [key for key, value in possibilities.items() for i in range(value)]
+                next_word = random.choice(weighted_possibilities)
 
                 if next_word is not None:
                     sentence.append(next_word)
+
             if next_word is None:
                 break
             current_ngram = " ".join(sentence[-degree:])
