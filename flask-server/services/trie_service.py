@@ -4,7 +4,7 @@ and TrieNode class for initializing the nodes
 """
 import os
 import string
-import nltk
+import nltk # pylint: disable=W0611
 from nltk.tokenize import PunktSentenceTokenizer
 
 class TrieNode: # pylint: disable=R0903
@@ -12,30 +12,22 @@ class TrieNode: # pylint: disable=R0903
     Boilerplate for a node of the Trie
     Attributes:
     - children: A dictionary containing children nodes of the current node
-    - is_word: A boolean indicating if the current node represents the end of a word
     - is_sentence: A boolean indicating if the current node represents the end of a sentence
-    - next_words: A set containing the possible next words following the current node
     - frequency: An integer representing the frequency of the current word in the Trie
     """
     def __init__(self):
         self.children = {}
-        self.is_word = False
         self.is_sentence = False
-        self.next_words = set()
         self.frequency = 0
 
 class Trie:
     """
-    The Trie (prefix-tree) for storing the words and its operations
+    The Trie (prefix-tree) for storing the words and generating ngrams
     Attributes:
     - root: A TrieNode object representing the root node of the Trie
-    - bigrams: A dictionary containing bigram frequency data for the Trie
-    - ngram_length: An integer representing the length of N-grams to create from inserted sentences
     """
-    def __init__(self, ngram_length = 2):
+    def __init__(self):
         self.root = TrieNode()
-        self.bigrams = {}
-        self.ngram_length = ngram_length
 
     def insert_books(self): # pragma: no cover
         """
@@ -43,7 +35,7 @@ class Trie:
         Parameters: None
         Returns: None
         """
-        banned_chars = string.digits + "-;&_?!ãĩŃńōœũūǎǑǒǓǔǕǖǗǘǙǚǛǜɑṣṫṭṳṵṷṹṻỳỵỷỹ”“‘" + '"'
+        banned_chars = string.digits + "●-;&_?!ãĩŃńōœũūǎǑǒǓǔǕǖǗǘǙǚǛǜɑṣṫṭṳṵṷṹṻỳỵỷỹ()”“‘" + '"'
         table = str.maketrans("", "", banned_chars)
 
         absolute_path = os.path.dirname(__file__)
@@ -62,119 +54,51 @@ class Trie:
 
     def insert(self, sentence):
         """
-        Inserts words from a sentence into the Trie, creating N-grams in the process.
+        Inserts words from a sentence into the Trie.
         Parameters:
         - sentence: A string representing a sentence to be inserted into the Trie.
         Returns: None
         """
-        n = self.ngram_length
-        words = sentence.split()
-        for i in range(len(words)): # pylint: disable=C0200
-            current = self.root
-            for char in words[i]:
-                if char not in current.children:
-                    current.children[char] = TrieNode()
-                current = current.children[char]
-            current.is_word = True
+        words = sentence.upper().split()
+        node = self.root
+        for word in words:
+            if word not in node.children:
+                node.children[word] = TrieNode()
+            node = node.children[word]
+        node.is_sentence = True
+        node.frequency += 1
 
-            if i < len(words) - 1:
-                current.next_words.add(words[i+1])
-            current.frequency += 1
-        current.is_sentence = True
-
-        for i in range(len(words) - n + 1):
-            ngram = " ".join(words[i:i+n])
-            if ngram not in self.bigrams:
-                self.bigrams[ngram] = {}
-            next_word = words[i+n] if i < len(words) - n else None
-            if next_word not in self.bigrams[ngram]:
-                self.bigrams[ngram][next_word] = 0
-            self.bigrams[ngram][next_word] += 1
-
-    def search(self, word):
+    def generate_ngrams(self, n):
         """
-        Searches for a word in the Trie.
-        Parameters:
-        - word: A string representing the word to search for in the Trie.
+        Generates n-grams for the sentences stored in the Trie.
+
+        Args:
+            n (int): The size of the n-grams to generate.
+
         Returns:
-        - True: If the word is found in the Trie.
-        - False: If the word is not found in the Trie.
+            dict: A nested dictionary where the keys are n-grams (sequences of n words),
+            and the values are dictionaries that map each follower word to its frequency.
+            For example, the dictionary { "This is": { "rocket": 1, "league": 1 } }
+            indicates that the n-gram (n == 2) "This is" appears in the text, and is followed
+            by "rocket" and "league" with a frequency of 1 each.
         """
-        current = self.root
-        for char in word:
-            if char not in current.children:
-                return False
-            current = current.children[char]
-        return current.is_word or current.is_sentence
+        ngrams = {}
 
-    def frequency_of(self, word):
-        """
-        Gets the frequency of a word in the Trie.
-        Parameters:
-        - word: A string representing the word to get the frequency of in the Trie.
-        Returns:
-        - An integer representing the frequency of the word in the Trie.
-        - None: If the word is not found in the Trie.
-        """
-        current = self.root
-        for char in word:
-            if char not in current.children:
-                return None
-            current = current.children[char]
-        return current.frequency
+        def dfs(node, prefix):
+            if node.is_sentence:
+                words = prefix.split()
+                if len(words) >= n:
+                    for i in range(len(words) - n + 1):
+                        ngram = " ".join(words[i:i+n])
+                        follower = words[i+n] if i+n < len(words) else None
+                        if ngram not in ngrams:
+                            ngrams[ngram] = {}
+                        if follower not in ngrams[ngram]:
+                            ngrams[ngram][follower] = 0
+                        ngrams[ngram][follower] += 1
+            for child_word, child_node in node.children.items():
+                dfs(child_node, prefix + ' ' + child_word)
 
-    def next_word(self, word):
-        """
-        Gets the possible next words following a given word in the Trie.
-        Parameters:
-        - word: A string representing the word to get the possible next words of in the Trie.
-        Returns:
-        - None: If the given word is not in the Trie.
-        - A set containing the possible next words following the given word in the Trie.
-        """
-        current = self.root
-        for char in word:
-            if char not in current.children:
-                return None
-            current = current.children[char]
-        return current.next_words
+        dfs(self.root, '')
 
-    def next_word_frequencies(self, word):
-        """
-        Returns a dictionary of possible next words for the given word and their
-        frequencies in the Trie. If the given word is not found in the Trie,
-        returns None.
-        Parameters:
-        word (str): The word for which to find the next word frequencies.
-        Returns:
-        dict: A dictionary mapping possible next words to their frequencies in the
-            Trie, or None if the given word is not found in the Trie.
-        """
-        current = self.root
-        for char in word:
-            if char not in current.children:
-                return None
-            current = current.children[char]
-        next_word_frequencies = {}
-        for next_word in current.next_words:
-            next_word_frequencies[next_word] = self.frequency_of(next_word)
-        return next_word_frequencies
-
-    def getter(self):
-        """
-        Returns a dictionary containing information about each word in the Trie.
-        Each key in the dictionary is a word in the Trie, and the value is a tuple
-        containing the word, its frequency in the Trie, and a set of possible
-        next words.
-        Returns:
-        dict: A dictionary containing information about each word in the Trie.
-        """
-        words_and_data = {}
-        stack = [("", self.root)]
-        while stack:
-            word, node = stack.pop()
-            if node.is_word or node.is_sentence:
-                words_and_data[word] = (word ,node.frequency, node.next_words)
-            for child_char, child_node in node.children.items():
-                stack.append((word + child_char, child_node))
-        return words_and_data
+        return ngrams

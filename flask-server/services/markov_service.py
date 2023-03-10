@@ -14,9 +14,9 @@ class MarkovChain:
     - words: A list of all unique words in the Markov Chain model.
     - ngrams: A dictionary of all bigrams (pairs of consecutive words) in the Markov Chain model.
     """
-    def __init__(self, trie):
+    def __init__(self, trie, state):
         self.trie = trie
-        self.ngrams = trie.bigrams
+        self.ngrams = trie.generate_ngrams(state)
 
     def generate_sentence(self, starting_word=None, max_length=50):
         """
@@ -37,7 +37,7 @@ class MarkovChain:
             sentence = str(current_ngram).split()
 
         else:
-            values = self.handle_starting_prompt(starting_word, degree)
+            values = self.handle_starting_prompt(starting_word.upper(), degree)
             current_ngram = values['current_ngram']
             sentence = values['sentence']
 
@@ -46,7 +46,8 @@ class MarkovChain:
             next_word = None
 
             if possibilities:
-                weighted_possibilities = [key for key, value in possibilities.items() for i in range(value)]
+                weighted_possibilities = [key for key, value in
+                                          possibilities.items() for i in range(value)]
                 next_word = random.choice(weighted_possibilities)
 
                 if next_word is not None:

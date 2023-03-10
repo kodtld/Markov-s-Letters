@@ -6,13 +6,15 @@ authors = ["kodtld <kodu@live.fi>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.12"
 flask = "^2.2.2"
 pypdf2 = "^3.0.1"
 nltk = "^3.8.1"
 pytest = "^7.2.1"
 pylint = "^2.15.10"
 virtualenv = "^20.19.0"
+invoke = "^2.0.0"
+pyinstaller = "^5.8.0"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.1.0"

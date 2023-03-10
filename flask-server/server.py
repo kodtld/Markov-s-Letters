@@ -36,9 +36,9 @@ def index(prompt=None, state=1):
     if request.method == "POST":
         state = int(request.form['slider'])
         prompt = request.form['prompt']
-        trie = Trie(state)
+        trie = Trie()
         trie.insert_books()
-        markov = MarkovChain(trie)
+        markov = MarkovChain(trie,state)
         sentences = generate_sentences(markov,prompt)
         return render_template('index.html', sentences = sentences)
 

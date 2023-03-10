@@ -1,3 +1,5 @@
 .coverage
 .coveragerc
 .pytest_cache
+.pylintrc
+__pycache__
