@@ -4,7 +4,7 @@ The program's structure is shown below.
 
 ```mermaid
 classDiagram
-  Server/UI-->MarkovChain
+  Server(UI)-->MarkovChain
   MarkovChain-->Trie
   Trie-->Books
   Trie-->TrieNode
@@ -31,7 +31,7 @@ classDiagram
 
   class Books
     
-  class Server/UI
+  class Server(UI)
   ```
 
 ## Space and time complexities
