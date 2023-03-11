@@ -18,7 +18,7 @@ classDiagram
   class Trie
     Trie: TrieNode root
     Trie: insert_books()
-    Trie: insert()
+    Trie: insert(sentence)
     Trie: generate_ngrams(state)
   
   class MarkovChain
