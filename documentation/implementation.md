@@ -24,7 +24,7 @@ classDiagram
   class MarkovChain
     MarkovChain: Trie trie
     MarkovChain: Int state
-    MarkovChain: Dict ngrams (trie.generate_ngrams(state))
+    MarkovChain: Dict ngrams(trie.generate_ngrams(state))
     MarkovChain: generate_sentence(starting_prompt, max_length)
     MarkovChain: handle_starting_prompt(starting_prompt, degree)
     MarkovChain: greater_or_equal_prompt(starting_prompt, degree)
