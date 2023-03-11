@@ -11,12 +11,12 @@ classDiagram
   Trie-->TrieNode
 
   class TrieNode
-    Node: Dict children
-    Node: Boolean is_sentence
-    Node: Int Frequency
+    TrieNode: Dict children
+    TrieNode: Boolean is_sentence
+    TrieNode: Int Frequency
     
   class Trie
-    Trie: Node root
+    Trie: TrieNode root
     Trie: insert_books()
     Trie: insert()
     Trie: generate_ngrams(state)
@@ -30,15 +30,15 @@ classDiagram
     MarkovChain: greater_or_equal_prompt(starting_prompt, degree)
     MarkovChain: shorter_prompt(starting_prompt)
 
-class Books
+  class Books
 
-class Server
-  Server: Flask UI
-  Server: index(starting_prompt, state)
-  Server: call_generate_sentences(markov_chain, starting_prompt)
-    
-class Template
-  Template: index.html
+  class Server
+    Server: UI
+    Server: index(starting_prompt, state)
+    Server: call_generate_sentences(markov_chain, starting_prompt)
+
+  class Template
+    Template: index.html
   ```
 
 ## Space and time complexities
