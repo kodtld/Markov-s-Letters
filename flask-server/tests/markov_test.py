@@ -27,11 +27,11 @@ class TestMarkovChain(unittest.TestCase):
         self.assertIsInstance(result, str)
         self.assertTrue(1 <= len(result.split()) <= 10)
 
-    def test_generate_sentence_starting_word(self):
+    def test_generate_sentence_starting_prompt(self):
         """
         Test if generate_sentence starts with the specified starting word
         """
-        result = self.markov_chain.generate_sentence(starting_word="word")
+        result = self.markov_chain.generate_sentence(starting_prompt="word")
         print(result)
         self.assertTrue(result.startswith("Word"))
     
@@ -39,7 +39,7 @@ class TestMarkovChain(unittest.TestCase):
         """
         Test that generate_sentence doesn't start with a word not in the trie
         """
-        result = self.markov_chain.generate_sentence(starting_word="suomi", max_length=10)
+        result = self.markov_chain.generate_sentence(starting_prompt="suomi", max_length=10)
         self.assertNotEqual(result, "Suomi")
 
     def test_handle_starting_prompt_greater_or_equal(self):

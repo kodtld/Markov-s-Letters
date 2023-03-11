@@ -27,7 +27,7 @@ print("    Time taken to generate one-state sentence with no starting word and m
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -35,7 +35,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -43,7 +43,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -55,7 +55,7 @@ print("    Time taken to generate one-state sentence with a starting word of equ
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -63,7 +63,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -71,7 +71,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -83,7 +83,7 @@ print("    Time taken to generate one-state sentence with a starting word of gre
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -91,7 +91,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -99,7 +99,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -120,7 +120,7 @@ print("    Time taken to generate two-state sentence with no starting word and m
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -128,7 +128,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -136,7 +136,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -148,7 +148,7 @@ print("    Time taken to generate two-state sentence with a starting word of sho
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -156,7 +156,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -164,7 +164,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -176,7 +176,7 @@ print("    Time taken to generate two-state sentence with a starting word of equ
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -184,7 +184,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -192,7 +192,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -204,7 +204,7 @@ print("    Time taken to generate two-state sentence with a starting word of gre
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -212,7 +212,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -220,7 +220,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -242,7 +242,7 @@ print("    Time taken to generate three-state sentence with no starting word and
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -250,7 +250,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -258,7 +258,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=None, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=None, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -270,7 +270,7 @@ print("    Time taken to generate three-state sentence with a starting word of s
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -278,7 +278,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -286,7 +286,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=shorter_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=shorter_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -298,7 +298,7 @@ print("    Time taken to generate three-state sentence with a starting word of e
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -306,7 +306,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -314,7 +314,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=equal_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=equal_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
@@ -326,7 +326,7 @@ print("    Time taken to generate three-state sentence with a starting word of g
 total_time = 0
 for i in range(10):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 10
 print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average time of 10 operations: {avg_time:.6f} seconds")
@@ -334,7 +334,7 @@ print(f"        Total times of 10 operations: {total_time:.6f} seconds | Average
 total_time = 0
 for i in range(100):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 100
 print(f"        Total times of 100 operations: {total_time:.6f} seconds | Average time of 100 operations: {avg_time:.6f} seconds")
@@ -342,7 +342,7 @@ print(f"        Total times of 100 operations: {total_time:.6f} seconds | Averag
 total_time = 0
 for i in range(1000):
     start_time = time.time()
-    markov_chain.generate_sentence(starting_word=greater_word, max_length=10)
+    markov_chain.generate_sentence(starting_prompt=greater_word, max_length=10)
     total_time += time.time() - start_time
 avg_time = total_time / 1000
 print(f"        Total times of 1000 operations: {total_time:.6f} seconds | Average time of 1000 operations: {avg_time:.6f} seconds")
