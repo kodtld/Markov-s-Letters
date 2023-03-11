@@ -4,7 +4,8 @@ The program's structure is shown below.
 
 ```mermaid
 classDiagram
-  Server(UI)-->MarkovChain
+  Server-->Template
+  Server-->MarkovChain
   MarkovChain-->Trie
   Trie-->Books
   Trie-->TrieNode
@@ -31,7 +32,13 @@ classDiagram
 
   class Books
     
-  class Server(UI)
+  class Server
+    Server: Flask: UI
+    Server: index(starting_prompt, state)
+    Server: call_generate_sentences(markov_chain, starting_prompt)
+    
+  class Template
+    Template: index.html
   ```
 
 ## Space and time complexities
