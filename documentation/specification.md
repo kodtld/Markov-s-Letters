@@ -13,6 +13,3 @@ The time complexity for inserting a word into a trie is O(n), where n is the len
 The time complexity for generating the Markov chain model from the trie data structure should be O(m * n), where m is the number of words in the trie and n is the average length of a word in the trie. Once the Markov chain model is generated, I think the time complexity for using it to get the next word in a sentence should be around O(1) on average, assuming that the previous words in the sentence are used as the state of the Markov chain.
 
 The space complexity for storing the Markov chain model will depend on the number of states and transitions in the model. It should be O(w * s), where w is the number of words in the trie and s is the number of states in the Markov chain model.
-
-## Sources
-Updated later...
