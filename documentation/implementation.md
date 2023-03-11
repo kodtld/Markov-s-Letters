@@ -30,15 +30,15 @@ classDiagram
     MarkovChain: greater_or_equal_prompt(starting_prompt, degree)
     MarkovChain: shorter_prompt(starting_prompt)
 
-  class Books
+class Books
+
+class Server
+  Server: Flask UI
+  Server: index(starting_prompt, state)
+  Server: call_generate_sentences(markov_chain, starting_prompt)
     
-  class Server
-    Server: Flask UI
-    Server: index(starting_prompt, state)
-    Server: call_generate_sentences(markov_chain, starting_prompt)
-    
-  class Template
-    Template: index.html
+class Template
+  Template: index.html
   ```
 
 ## Space and time complexities
