@@ -68,7 +68,7 @@ class Trie:
         node.is_sentence = True
         node.frequency += 1
 
-    def generate_ngrams(self, n):
+    def generate_ngrams(self, state):
         """
         Generates n-grams for the sentences stored in the Trie.
 
@@ -87,10 +87,10 @@ class Trie:
         def dfs(node, prefix):
             if node.is_sentence:
                 words = prefix.split()
-                if len(words) >= n:
-                    for i in range(len(words) - n + 1):
-                        ngram = " ".join(words[i:i+n])
-                        follower = words[i+n] if i+n < len(words) else None
+                if len(words) >= state:
+                    for i in range(len(words) - state + 1):
+                        ngram = " ".join(words[i:i+state])
+                        follower = words[i+state] if i+state < len(words) else None
                         if ngram not in ngrams:
                             ngrams[ngram] = {}
                         if follower not in ngrams[ngram]:

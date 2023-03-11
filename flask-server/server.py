@@ -10,7 +10,7 @@ from services.markov_service import MarkovChain
 app = Flask(__name__)
 
 @app.route("/", methods=['GET','POST'])
-def index(prompt=None, state=1):
+def index(starting_prompt=None, state=1):
     """
     Render the index.html template with a list of generated sentences.
 
@@ -35,16 +35,16 @@ def index(prompt=None, state=1):
 
     if request.method == "POST":
         state = int(request.form['slider'])
-        prompt = request.form['prompt']
+        starting_prompt = request.form['prompt']
         trie = Trie()
         trie.insert_books()
-        markov = MarkovChain(trie,state)
-        sentences = generate_sentences(markov,prompt)
+        markov_chain = MarkovChain(trie, state)
+        sentences = call_generate_sentences(markov_chain, starting_prompt)
         return render_template('index.html', sentences = sentences)
 
     return render_template('index.html', sentences = sentences)
 
-def generate_sentences(markov, prompt=None):
+def call_generate_sentences(markov_chain, starting_prompt=None):
     """
     Calls the markov_service and returns dictionary of state Markov sentences
 
@@ -57,10 +57,10 @@ def generate_sentences(markov, prompt=None):
     """
     sentences = []
     for i in range(6): # pylint: disable=W0612
-        if prompt == "":
-            string = str(markov.generate_sentence())
+        if starting_prompt == "":
+            string = str(markov_chain.generate_sentence())
         else:
-            string = str(markov.generate_sentence(prompt))
+            string = str(markov_chain.generate_sentence(starting_prompt))
         sentences.append({"sentence": string})
     return sentences
 

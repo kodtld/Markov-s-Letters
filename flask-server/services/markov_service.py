@@ -18,12 +18,12 @@ class MarkovChain:
         self.trie = trie
         self.ngrams = trie.generate_ngrams(state)
 
-    def generate_sentence(self, starting_word=None, max_length=50):
+    def generate_sentence(self, starting_prompt=None, max_length=50):
         """
         Generates a sentence using the Markov chain.
 
         Parameters:
-        starting_word (str): the starting word for the sentence.
+        starting_prompt (str): the starting word for the sentence.
         If None, a random starting word will be chosen.
         max_length (int): the maximum length of the sentence.
 
@@ -32,12 +32,12 @@ class MarkovChain:
         """
         degree = len(list(self.ngrams.keys())[0].split())
 
-        if starting_word in ("", None):
+        if starting_prompt in ("", None):
             current_ngram = random.choice(list(self.ngrams.keys()))
             sentence = str(current_ngram).split()
 
         else:
-            values = self.handle_starting_prompt(starting_word.upper(), degree)
+            values = self.handle_starting_prompt(starting_prompt.upper(), degree)
             current_ngram = values['current_ngram']
             sentence = values['sentence']
 
@@ -59,56 +59,56 @@ class MarkovChain:
 
         return " ".join(sentence).capitalize()
 
-    def handle_starting_prompt(self, starting_word, degree):
+    def handle_starting_prompt(self, starting_prompt, degree):
         """
         Handles the starting prompt for the generated sentence.
 
         Parameters:
-        starting_word (str): the starting word for the sentence.
+        starting_prompt (str): the starting word for the sentence.
         degree (int): the degree of the Markov chain.
 
         Returns:
         dict: a dictionary containing the current ngram and the sentence.
         """
-        if len(starting_word.split()) >= degree:
-            values = self.greater_or_equal_prompt(starting_word, degree)
+        if len(starting_prompt.split()) >= degree:
+            values = self.greater_or_equal_prompt(starting_prompt, degree)
 
         else:
-            values = self.shorter_prompt(starting_word)
+            values = self.shorter_prompt(starting_prompt)
 
         current_ngram = values['current_ngram']
         sentence = values['sentence']
         return {"current_ngram":current_ngram, "sentence":sentence}
 
-    def greater_or_equal_prompt(self, starting_word, degree):
+    def greater_or_equal_prompt(self, starting_prompt, degree):
         """
         Handles the starting prompt when the starting word contains
         at least as many words as the degree of the Markov chain.
 
         Parameters:
-        starting_word (str): the starting word for the sentence.
+        starting_prompt (str): the starting word for the sentence.
         degree (int): the degree of the Markov chain.
 
         Returns:
         dict: a dictionary containing the current ngram and the sentence.
         """
-        sentence = starting_word.split()
+        sentence = starting_prompt.split()
         current_ngram = " ".join(sentence[-degree:])
         return {"current_ngram":current_ngram, "sentence":sentence}
 
 
-    def shorter_prompt(self, starting_word):
+    def shorter_prompt(self, starting_prompt):
         """
         Handles the starting prompt when the starting word contains
         fewer words than the degree of the Markov chain.
 
         Parameters:
-        starting_word (str): the starting word for the sentence.
+        starting_prompt (str): the starting word for the sentence.
 
         Returns:
         dict: a dictionary containing the current ngram and the sentence.
         """
-        valid_ngrams = [ngram for ngram in self.ngrams.keys() if ngram.startswith(starting_word)]
+        valid_ngrams = [ngram for ngram in self.ngrams.keys() if ngram.startswith(starting_prompt)]
 
         if len(valid_ngrams) > 0:
             current_ngram = random.choice(valid_ngrams)
