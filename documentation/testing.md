@@ -40,7 +40,7 @@ There's also performance tests for the generation of sentences:
 - Generating sentences with state == 3.
 
 ## Run tests
-All operations need to be ran from flask-server directory, to navigate to the directory use command:
+**All testing operations need to be ran from *flask-server* directory and require the installation of *Python* and *Poetry***, to navigate to the directory use command:
 ```
 cd flask-server
 ```
