@@ -6,7 +6,7 @@
 
 ## Tests
 The tests cover the functionality of the *trie_service* and *markov_service* classes.<br><br>
-The [coverage document](https://codecov.io/gh/kodtld/Markov-s-Letters) shows the test in detail. 
+The [coverage document](https://app.codecov.io/gh/kodtld/Markov-s-Letters/tree/master/flask-server/services) shows the test in detail. 
 
 ## Trie
 
