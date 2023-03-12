@@ -65,11 +65,12 @@ poetry run invoke performance
 ## Further development
 If the functionality of the program is updated, you can create a new executable file with the following steps:
 - Delete directories *build* and *dist* from *flask-server* directory.
-- Activate a *Poetry* shell with: ```
+- Activate a *Poetry* shell with: 
+- ```
 poetry shell
 ```
 - From *flask-server* directory, run:
-```
+- ```
 pyinstaller server.spec
 ```
 - After generating the new executable file, the steps from the [user manual](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/manual.md) can be followed to run the program.
