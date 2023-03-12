@@ -63,6 +63,7 @@ To run the performance tests, use command:
 poetry run invoke performance
 ```
 ## Further development
+All of the following operations require a system with *Python* and *Poetry* installed. <br><br>
 If the functionality of the program is updated, you can create a new executable file with the following steps:
 - Delete directories *build* and *dist* from *flask-server* directory.
 - Activate a *Poetry* shell with: 
