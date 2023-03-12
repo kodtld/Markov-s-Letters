@@ -22,7 +22,7 @@ The more advance functionalities tested are as follows:
   - Also tested negative return in case there's not enough data to generate N state Ngrams.
 
 ### Performance
-At the moment there's performance tests for the basic functionality of the trie such as:
+There's also performance tests for the operations of the trie such as:
 - Inserting the books into the trie.
 - Generating Ngrams with different degrees.
 
@@ -32,6 +32,12 @@ The basic functionalities tested are as follows:
 - Testing that generating a sentence returns a valid sentence with no starting prompt.
 - Testing that generating a sentence returns a valid sentence with a given starting prompt.
 - Testing the handling of the starting prompt(shorter, equal, or greater(in length compared to degree of Markov))
+
+### Performance
+There's also performance tests for the generation of sentences:
+- Generating sentences with state==1.
+- Generating sentences with state==2.
+- Generating sentences with state==3.
 
 ## Run tests
 ### Unittests
