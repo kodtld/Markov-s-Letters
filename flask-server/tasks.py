@@ -1,10 +1,10 @@
 from invoke import task
 
 @task
-
 def start(ctx):
     ctx.run("cd dist && ./server")
 
+@task
 def test(ctx):
     ctx.run("pytest tests")
 
