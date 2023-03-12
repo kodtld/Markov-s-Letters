@@ -22,7 +22,7 @@ cd dist
 ```
 ./server
 ```
-If you have *Poetry* installed, you can run the application from the with:
+If you have *Poetry* installed, you can run the application from the flask-server directory with:
 ```
 poetry run invoke start
 ```
