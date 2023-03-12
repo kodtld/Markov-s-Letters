@@ -35,9 +35,9 @@ The basic functionalities tested are as follows:
 
 ### Performance
 There's also performance tests for the generation of sentences:
-- Generating sentences with state==1.
-- Generating sentences with state==2.
-- Generating sentences with state==3.
+- Generating sentences with state == 1.
+- Generating sentences with state == 2.
+- Generating sentences with state == 3.
 
 ## Run tests
 ### Unittests
