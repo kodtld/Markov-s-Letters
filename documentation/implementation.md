@@ -57,6 +57,7 @@ Constructing the Markov model takes **O(N)** space, where N = the amount of node
 Generating a sentence involves iterating through the ngrams dictionary until the maximum length of the sentence is reached or there are no more possibilities for the next word. This loop has a worst-case time complexity of **O(max length * size of Ngrams dictionary)**.<br><br>
 The space complexity of the generating sentences is **O(N)** where N = max length of sentence.
 ## Points of improvement
-To be updated...
-
+- While reading the books(.txt files), some banned characters and numerals are removed from sentences. In some cases there's still unwanted special characters in the text, that with further expections could likely be removed.
+- One could argue that the reading of the books files should be differentiated from the Trie itself.
+- With a little tweaking, the generate_sentence() from markov_service, could be made more cohesive.
 ## Sources/Links
