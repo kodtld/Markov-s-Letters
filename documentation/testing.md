@@ -6,7 +6,7 @@
 
 ## Tests
 The tests cover the functionality of the trie_service and markov_service classes and their functions.
-The coverage document linked above shows all of the tests. 
+The [coverage document](https://codecov.io/gh/kodtld/Markov-s-Letters) shows the test in detail. 
 
 ## Trie
 
