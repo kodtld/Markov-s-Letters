@@ -69,15 +69,15 @@ poetry run invoke performance
 
 ### Performance of Trie_service
 
-![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATE_Trie_service_performance.jpg)
+![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATED_Trie_service_performance.jpg)
 
 ### Performance of Markov_service
 
 #### One-state
-![One-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/One_state_performance.jpg)
+![One-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATED_One_state_performance.jpg)
 
 #### Two-state
-![Two-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Two_state_performance.jpg)
+![Two-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATED_Two_state_performance.jpg)
 
 #### Three-state
-![Three-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Three_state_performance.jpg)
+![Three-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATED_Three_state_performance.jpg)
