@@ -1,6 +1,6 @@
 # General Information
 The program begins by reading text from books and tokenizing them into individual words. It then inserts these words into a trie data structure, which allows for efficient storage and retrieval of words. The trie is then used to generate n-grams of length n, which are subsequences of n words that appear together in the text. The Ngrams contain the Ngram itself, it's possible followers, and for each follower, it's frequency.<br><br>
-*Displayed below is the general structure of a trie. Unlike in the image, my Trie has full words as nodes instead of letters.
+*Displayed below is the general structure of a trie. Unlike in the image, my Trie has full words as nodes instead of letters.*
 ![Trie_1](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_1.png)
 
 ## Markov Chain
