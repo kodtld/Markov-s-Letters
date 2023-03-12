@@ -43,10 +43,10 @@ classDiagram
 
 ## Space and time complexities
 ### Trie
-The space complexity of the trie is O(amount of words * average word length * N) where N is the number of sentences in the trie.
+The space complexity of the trie is **O(amount of words * average word length * N)** where N is the number of sentences in the trie.
 #### Insert
 Since on average the Trie needs to be travesed N length when inserting a sentence, the time complexity of insert is **O(N)**, where N = length of inserted sentence. <br>
-The space complexity of insert is also O(N), where N = length of sentence, since in the worst case N nodes need to be added to trie.
+The space complexity of insert is also **O(N)**, where N = length of sentence, since in the worst case N nodes need to be added to trie.
 #### Generate Ngrams
 
 ### Markov Chain
