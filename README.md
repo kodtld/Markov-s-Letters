@@ -29,9 +29,11 @@ poetry run invoke start
 **In either case, once the application is running, you need to manually open localhost:5000 in a browser of your choosing.**
 
 ## Documentation
-[Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
+[User Manual](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/manual.md) <br><br>
 [Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md) <br><br>
-[Implementation Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/implementation.md)
+[Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
+[Implementation Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/implementation.md) <br><br>
+[General Information](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/info.md)
 
 ## Weekly reports
 ### Week 1
