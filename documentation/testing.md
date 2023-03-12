@@ -51,6 +51,10 @@ poetry run invoke test
 ```
 
 ### Pylint
+Pylint check includes files:
+- server.py
+- trie_service.py
+- markov_service.py
 To run pylint checks, use command:
 ```
 poetry run invoke pylint
