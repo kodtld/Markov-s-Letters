@@ -9,15 +9,24 @@ You can download the project with the command:
 git clone https://github.com/kodtld/Markov-s-Letters
 ```
 ## Running
-To run the program you can navigate to the "dist" folder with the command:
+Running of the program doesn't require installation of Python or Poetry, but bothe are necessary to run the [tests.](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md) <br><br>
+
+All commands are to be ran from the flask-server directory, to which you can navigate with the command:
 ```
-cd Markov-s-Letters/flask-server/dist/
+cd flask-server
 ```
-Once in the right folder, you can start the application on localhost:5000 with the command:
+If your system doesn't have Poetry installed, you can run the application with following steps:
+```
+cd dist
+```
 ```
 ./server
 ```
-Once the application is running, you need to manually open localhost:5000 in a browser of your choosing.
+If you have Poetry installed, you can run the application with:
+```
+poetry run invoke start
+```
+In either case, once the application is running, you need to manually open localhost:5000 in a browser of your choosing.
 
 ## Documentation
 [Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
