@@ -1,4 +1,15 @@
 # User Manual
+## Usage
+![Markov UI](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/Markov_UI.png)
+The usage of the application is pretty straightforward.<br><br>
+Use the slider to select the state/degree of Markov in which the generation of sentences should happen in. The states available are 1-5 and the output differs depending on selected state.<br><br>
+Degree 1: A Markov chain of degree 1 only considers the current state and its immediate successor. <br><br>
+Degree 2: A Markov chain of degree 2 considers the current state, its immediate successor, and the state that precedes the current state.<br><br>
+Degree 3: A Markov chain of degree 3 considers the current state, its immediate successor, the state that precedes the current state, and the state that precedes the predecessor of the current state.<br><br>
+Degree 4: A Markov chain of degree 4 considers the current state, its immediate successor, the two states that precede the current state, and the state that precedes the predecessor of the current state.<br><br>
+Degree 5: A Markov chain of degree 5 considers the current state, its immediate successor, the two states that precede the current state, and the two states that precede the predecessor of the current state.<br><br>
+If you just select the state and hit generate, the application will generate corresponding degree sentences based on the corpus. <br><br>
+You can also give a starting prompt, and if the given word/sequence is found in the corpus, the generation will start with given prompt. If the prompt is shorter than selected state (ex. one word prompt with state 2) and it's not found in the corpus, the generator will select a random starting prompt for the generation.                   
 ## Installation
 You can download the project with the command:
 ```
