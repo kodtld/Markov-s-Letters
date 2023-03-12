@@ -62,11 +62,11 @@ To run the performance tests, use command:
 poetry run invoke performance
 ```
 
-### Trie_service
+### Performance of Trie_service
 
 ![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATE_Trie_service_performance.jpg)
 
-### Markov_service
+### Performance of Markov_service
 
 You can run the performance test/report for the markov_service from the flask-server directory with the following command:
 ```
