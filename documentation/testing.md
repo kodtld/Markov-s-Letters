@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/kodtld/Markov-s-Letters/branch/master/graph/badge.svg?token=GZHXEZIJ17)](https://codecov.io/gh/kodtld/Markov-s-Letters)
 
 ## Tests
-The tests cover the functionality of the trie_service and markov_service classes and their functions.
+The tests cover the functionality of the trie_service and markov_service classes and their functions.<br><br>
 The [coverage document](https://codecov.io/gh/kodtld/Markov-s-Letters) shows the test in detail. 
 
 ## Trie
