@@ -40,7 +40,7 @@ These n-grams are then passed to a Markov chain class, which uses them to genera
 ## Documentation
 [User Manual](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/manual.md) <br><br>
 [Test Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/testing.md) <br><br>
-[Specification](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
+[Specification Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/specification.md) <br><br>
 [Implementation Document](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/implementation.md) <br><br>
 [General Information](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/info.md)
 
