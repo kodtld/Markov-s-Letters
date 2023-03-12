@@ -68,10 +68,6 @@ poetry run invoke performance
 
 ### Performance of Markov_service
 
-You can run the performance test/report for the markov_service from the flask-server directory with the following command:
-```
-python3 performance_markov.py
-```
 #### One-state
 ![One-state performance](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/One_state_performance.jpg)
 
