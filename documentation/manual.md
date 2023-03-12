@@ -10,7 +10,7 @@ Use the slider to select the state/degree of Markov in which the generation of s
 - Degree 5: A Markov chain of degree 5 considers the current state, its immediate successor, the two states that precede the current state, and the two states that precede the predecessor of the current state.<br>
 
 If you just select the state and hit generate, the application will generate corresponding degree sentences based on the corpus. <br><br>
-You can also give a starting prompt, and if the given word/sequence is found in the corpus, the generation will start with given prompt. If the prompt is shorter than selected state (ex. one word prompt with state 2) and it's not found in the corpus, the generator will select a random starting prompt for the generation.                   
+You can also give a starting prompt (not case sensitive), and if the given word/sequence is found in the corpus, the generation will start with given prompt. If the prompt is shorter than selected state (ex. one word prompt with state 2) and it's not found in the corpus, the generator will select a random starting Ngram for the generation. The corpus is stripped of numerals, so if a numeral is given as starting prompt, a random Ngram is selected.              
 ## Installation
 You can download the project with the command:
 ```
