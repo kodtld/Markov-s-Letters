@@ -40,28 +40,30 @@ There's also performance tests for the generation of sentences:
 - Generating sentences with state == 3.
 
 ## Run tests
-### Unittests
-To run the test you need to be in the flask-server repository.
-You can access the flask-server repository from the root folder with:
+All operations need to be ran from flask-server directory, to navigate to the directory use command:
 ```
 cd flask-server
 ```
-When in flask-server repo. you can run the tests with the following command:
+### Unittests
+To run the unittests, use command:
 ```
-coverage run -m pytest tests
+poetry run invoke test
 ```
-After running the tests, you can generate the coverage report with:
-```
-coverage report -m
 
+### Pylint
+To run pylint checks, use command:
 ```
-## Performance tests
+poetry run invoke pylint
+```
+
+### Performance tests
+To run the performance tests, use command:
+```
+poetry run invoke performance
+```
+
 ### Trie_service
 
-You can run the performance test/report for the trie_service from the flask-server directory with the following command:
-```
-python3 performance_trie.py
-```
 ![Performance of trie_service](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/UPDATE_Trie_service_performance.jpg)
 
 ### Markov_service
