@@ -1,13 +1,7 @@
 # General Information
-## Trie (Prefix-tree)
-### Stucture
+The program begins by reading text from books and tokenizing them into individual words. It then inserts these words into a trie data structure, which allows for efficient storage and retrieval of words. The trie is then used to generate n-grams of length n, which are subsequences of n words that appear together in the text. The Ngrams contain the Ngram itself, it's possible followers, and for each follower, it's frequency.<br><br>
+*Displayed below is the general structure of a trie. Unlike in the image, my Trie has full words as nodes instead of letters.
 ![Trie_1](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_1.png)
-### Insert
-![Trie_2](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_2.png)
-### Search
-![Trie_3](https://github.com/kodtld/Markov-s-Letters/blob/master/documentation/images/trie_info_3.png)
-### Source
-[Implementing Trie in Python by Albert Au Yeung](https://albertauyeung.github.io/2020/06/15/python-trie.html/)
 
 ## Markov Chain
 ### Basic Idea
