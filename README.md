@@ -15,7 +15,7 @@ Running of the program doesn't require installation of *Python* or *Poetry*, but
 ```
 cd flask-server
 ```
-If your system doesn't have *Poetry* installed, you can run the application with following steps:
+If your system doesn't have *Poetry* installed, you can run the application with following commands:
 ```
 cd dist
 ```
