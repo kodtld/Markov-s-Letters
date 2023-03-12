@@ -61,3 +61,5 @@ The space complexity of the generating sentences is **O(N)** where N = max lengt
 - One could argue that the reading of the books files should be differentiated from the Trie itself.
 - With a little tweaking, the generate_sentence() from markov_service, could be made more cohesive.
 ## Sources/Links
+[Implementing Trie in Python by Albert Au Yeung](https://albertauyeung.github.io/2020/06/15/python-trie.html/)
+[From “What is a Markov Model” to “Here is how Markov Models Work” by Alexander Dejeu](https://hackernoon.com/from-what-is-a-markov-model-to-here-is-how-markov-models-work-1ac5f4629b71)
