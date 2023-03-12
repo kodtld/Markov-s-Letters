@@ -12,34 +12,26 @@ The coverage document linked above shows all of the tests.
 
 ### Basic functionality
 The basic functionalities tested are as follows:
-- Manually inserted words are present in the trie
-- Searching for a word present returns True
--- A nonexistent word returns None
+- Manually inserted words are present in the trie.
+- Searching for a word present returns True.
+  - Inserting same word twice raises frequency.
 
 ### Advanced functionality
 The more advance functionalities tested are as follows:
-- Frequency search of a word in the trie returns its frequency
-  - A nonexistent word returns None
-- Next words search for a word in the trie returns a dictionary of the words that appear after the word
-  - A nonexistent word returns None
-- Next words & frequencies search for a word in the trie returns a dictionary of the words that appear after the word and their frequencies
-  - A nonexistent word returns None
-- The getter returns every word and their frequency and followers
+- Generation of Ngrams is tested with a Trie containing one or multiple sentences.
+  - Also tested negative return in case there's not enough data to generate N state Ngrams.
 
 ### Performance
 At the moment there's performance tests for the basic functionality of the trie such as:
-- Inserting the books into the trie
-- Searching for a specific word in the trie
-- Searching for the frequency of a specific word
-- Searching for the followers of a specific word
-- Searching for the frequencies of following words
+- Inserting the books into the trie.
+- Generating Ngrams with different degrees.
 
 ## Markov
 ### Basic functionality
 The basic functionalities tested are as follows:
-- Testing that generating a one-state sentence returns a sentence of valid length
-- Testing that generating a one-state sentence with given starting word generates a valid sentence
-- Testing that generating a two-state sentence returns a sentence of valid length
+- Testing that generating a sentence returns a valid sentence with no starting prompt.
+- Testing that generating a sentence returns a valid sentence with a given starting prompt.
+- Testing the handling of the starting prompt(shorter, equal, or greater(in length compared to degree of Markov))
 
 ## Run tests
 ### Unittests
