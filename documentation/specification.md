@@ -7,7 +7,7 @@ My goal is to initialize a trie with text from novels, and generating sentences 
 
 I chose the topic because it seemed like a proper challenge, but a manageable one. I believe it'll be a fitting project for my first poke at machine learning.
 
-## Time and space
+## Expected time and space complexities
 The time complexity for inserting a word into a trie is O(n), where n is the length of the word. The time complexity for searching for a word in a trie is also O(n), where n is the length of the word being searched for. The space complexity for a trie is O(m * n), where m is the number of words in the trie and n is the average length of a word in the trie.
 
 The time complexity for generating the Markov chain model from the trie data structure should be O(m * n), where m is the number of words in the trie and n is the average length of a word in the trie. Once the Markov chain model is generated, I think the time complexity for using it to get the next word in a sentence should be around O(1) on average, assuming that the previous words in the sentence are used as the state of the Markov chain.
